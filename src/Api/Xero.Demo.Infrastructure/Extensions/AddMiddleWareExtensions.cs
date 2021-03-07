@@ -21,9 +21,9 @@ namespace Xero.Demo.Api.Domain.Extension
             {
                 options.UseSqlite(Configuration.GetConnectionString(CONSTANTS.SqlLite))
                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
-                .EnableSensitiveDataLogging()
-                .EnableDetailedErrors()
-                .LogTo(Console.WriteLine)
+                //.EnableSensitiveDataLogging()
+                //.EnableDetailedErrors()
+                //.LogTo(Console.WriteLine)
                 ;
             });
 

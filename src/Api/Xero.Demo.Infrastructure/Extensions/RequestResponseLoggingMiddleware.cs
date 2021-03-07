@@ -32,10 +32,10 @@ namespace Xero.Demo.Api.Xero.Demo.Infrastructure.Extensions
             await using var requestStream = _recyclableMemoryStreamManager.GetStream();
             await context.Request.Body.CopyToAsync(requestStream);
             _logger.LogInformation($"Http Request Information:{Environment.NewLine}" +
-                                   $"Schema:{context.Request.Scheme} " +
-                                   $"Host: {context.Request.Host} " +
-                                   $"Path: {context.Request.Path} " +
-                                   $"QueryString: {context.Request.QueryString} " +
+                                   $"Schema:{context.Request.Scheme} {Environment.NewLine}" +
+                                   $"Host: {context.Request.Host} {Environment.NewLine}" +
+                                   $"Path: {context.Request.Path} {Environment.NewLine}" +
+                                   $"QueryString: {context.Request.QueryString} {Environment.NewLine}" +
                                    $"Request Body: {ReadStreamInChunks(requestStream)}");
             context.Request.Body.Position = 0;
         }
@@ -72,10 +72,11 @@ namespace Xero.Demo.Api.Xero.Demo.Infrastructure.Extensions
             context.Response.Body.Seek(0, SeekOrigin.Begin);
 
             _logger.LogInformation($"Http Response Information:{Environment.NewLine}" +
-                                   $"Schema:{context.Request.Scheme} " +
-                                   $"Host: {context.Request.Host} " +
-                                   $"Path: {context.Request.Path} " +
-                                   $"QueryString: {context.Request.QueryString} " +
+                                   $"Schema:{context.Request.Scheme} {Environment.NewLine}" +
+                                   $"Host: {context.Request.Host} {Environment.NewLine}" +
+                                   $"Path: {context.Request.Path} {Environment.NewLine}" +
+                                   $"QueryString: {context.Request.QueryString} {Environment.NewLine}" +
+                                   $"StatusCode: {context.Response?.StatusCode} {Environment.NewLine}" +
                                    $"Response Body: {text}");
 
             await responseBody.CopyToAsync(originalBodyStream);

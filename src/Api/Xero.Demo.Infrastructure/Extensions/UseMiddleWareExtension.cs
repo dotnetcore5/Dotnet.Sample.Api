@@ -16,6 +16,8 @@ using System.Net.Mime;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
+using Xero.Demo.Api.Xero.Demo.Infrastructure.Extensions;
+
 namespace Xero.Demo.Api.Domain.Extension
 {
     internal static class UseMiddleWareExtension
@@ -37,7 +39,7 @@ namespace Xero.Demo.Api.Domain.Extension
             var requestLocalizationOptions = new RequestLocalizationOptions { SupportedCultures = supportedCultures, SupportedUICultures = supportedCultures };
             requestLocalizationOptions.RequestCultureProviders.Insert(0, new JsonRequestCultureProvider());
             app.UseRequestLocalization(requestLocalizationOptions);
-
+            app.UseRequestResponseLogging();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

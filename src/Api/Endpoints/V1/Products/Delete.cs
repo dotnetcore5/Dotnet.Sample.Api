@@ -28,17 +28,12 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         {
             if (!ModelState.IsValid || id == Guid.Empty) return BadRequest(ModelState.GetErrorMessages());
 
-            var traceIdentifier = HttpContext.TraceIdentifier;
-            _logger.LogInformation(string.Format(LogMessage.PreRequestLog, nameof(DeleteAsync), id, traceIdentifier));
-
             var product = await _db.Products.FindAsync(id);
 
             if (product == default) return NotFound(string.Format(CustomException.NotFoundException, id));
 
             var productRemoved = _db.Products.Remove(product);
             rowCountDeleted = await _db.SaveChangesAsync();
-
-            _logger.LogInformation(string.Format(LogMessage.PostRequestLog, nameof(DeleteAsync), id, traceIdentifier));
 
             return deleted ? NoContent() : StatusCode(StatusCodes.Status500InternalServerError);
         }

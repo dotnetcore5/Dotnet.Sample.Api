@@ -16,11 +16,9 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
     public partial class ProductsController : BaseApiController
     {
         public readonly Database _db;
-        public readonly ILogger<ProductsController> _logger;
 
-        public ProductsController(ILogger<ProductsController> logger, Database db)
+        public ProductsController(Database db)
         {
-            _logger = logger;
             _db = db;
         }
 
@@ -41,13 +39,9 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         {
             if (!ModelState.IsValid) return BadRequest(ModelState.GetErrorMessages());
 
-            var traceIdentifier = HttpContext.TraceIdentifier;
-            _logger.LogInformation(string.Format(LogMessage.PreRequestLog, nameof(PostAsync), product.Id, traceIdentifier));
-
             var entity = await _db.Products.AddAsync(product);
             var count = await _db.SaveChangesAsync();
 
-            _logger.LogInformation(string.Format(LogMessage.PostRequestLog, nameof(PostAsync), entity.Entity.Id, traceIdentifier));
             var responseProduct = new ProductDTO
             {
                 DeliveryPrice = entity.Entity.DeliveryPrice,

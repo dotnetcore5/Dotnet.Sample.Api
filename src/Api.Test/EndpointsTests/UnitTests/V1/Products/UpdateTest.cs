@@ -17,11 +17,9 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
     public class UpdateTest : IDisposable
     {
         private Database moqDatabase;
-        private Mock<ILogger<ProductsController>> moqLogger;
 
         public UpdateTest()
         {
-            moqLogger = new Mock<ILogger<ProductsController>>();
             var options = new DbContextOptionsBuilder<Database>().UseInMemoryDatabase(databaseName: SampleDataV1.Database).Options;
             moqDatabase = new Database(options);
         }
@@ -30,7 +28,7 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
         public async Task PutAsync_Updates_Product_Successfully_With_Valid_Product_Id_and_Details()
         {
             //Given
-            var sut = new ProductsController(moqLogger.Object, moqDatabase)
+            var sut = new ProductsController(moqDatabase)
             {
                 ControllerContext = new ControllerContext()
             };
@@ -39,7 +37,7 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
                 TraceIdentifier = SampleDataV1.TraceIdentifier
             };
 
-            var product = await moqDatabase.Products.AddAsync(SampleDataV1.Product);      //adding the product to be database
+            var product = await moqDatabase.Products.AddAsync(SampleDataV1.Product);            //adding the product to be database
             await moqDatabase.SaveChangesAsync();                                              //saving the product to be updated
             product.Entity.Description = SampleDataV1.NewDescription;
 
@@ -54,7 +52,6 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
         public void Dispose()
         {
             moqDatabase = null;
-            moqLogger = null;
         }
     }
 }

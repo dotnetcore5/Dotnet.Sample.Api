@@ -16,12 +16,10 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
     [Trait("Category", "Unit")]
     public class CreateTest : IDisposable
     {
-        private Mock<ILogger<ProductsController>> moqLogger;
         private DbContextOptions<Database> options;
 
         public CreateTest()
         {
-            moqLogger = new Mock<ILogger<ProductsController>>();
             options = new DbContextOptionsBuilder<Database>().UseInMemoryDatabase(databaseName: SampleDataV1.Database).Options;
         }
 
@@ -30,7 +28,7 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
         {
             //Given
             using var moqDatabase = new Database(options);
-            var sut = new ProductsController(moqLogger.Object, moqDatabase)
+            var sut = new ProductsController(moqDatabase)
             {
                 ControllerContext = new ControllerContext()
             };
@@ -52,7 +50,6 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
 
         public void Dispose()
         {
-            moqLogger = null;
             options = null;
         }
     }

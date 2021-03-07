@@ -20,8 +20,7 @@ namespace Xero.Demo.Api.Domain.Extension
         {
             services.AddControllers();
             services.Configure<JwtSettings>(Configuration.GetSection("JwtSettings"));
-            services.AddJwtAuthentication(Configuration);
-            services.AddSecurity();
+            services.AddSecurity(Configuration);
             services.AddDbContext<Database>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString(CONSTANTS.SqlLite))

@@ -3,7 +3,6 @@ using Xero.Demo.Api.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,19 +26,15 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
             //var language = AddLocalizationExtension._e[WELCOME];
             //_logger.LogInformation(string.Format(AddLocalizationExtension._e[WELCOME].Value));
 
-            var traceIdentifier = HttpContext.TraceIdentifier;
-            _logger.LogInformation(string.Format(LogMessage.PreRequestLog, nameof(GetAsync), string.Empty, traceIdentifier));
-
             var products = await _db.Products.AsQueryable().ToListAsync();
 
-            _logger.LogInformation(string.Format(LogMessage.PostRequestLog, nameof(GetAsync), string.Empty, traceIdentifier));
-            var res = products.Select(p => new ProductDTO 
-            { 
-                Id=p.Id,
-                Name=p.Name,
-                Description=p.Description,
-                Price=p.Price,
-                DeliveryPrice=p.DeliveryPrice
+            var res = products.Select(p => new ProductDTO
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Description = p.Description,
+                Price = p.Price,
+                DeliveryPrice = p.DeliveryPrice
             }).ToList();
             return Ok(res);
         }
@@ -58,20 +53,16 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         {
             if (!ModelState.IsValid || id == Guid.Empty) return BadRequest(ModelState.GetErrorMessages());
 
-            var traceIdentifier = HttpContext.TraceIdentifier;
-            _logger.LogInformation(string.Format(LogMessage.PostRequestLog, nameof(GetByIdAsync), id, traceIdentifier));
-
             var product = await _db.Products.FindAsync(id);
             if (product == default) return NotFound(string.Format(CustomException.NotFoundException, id));
 
-            _logger.LogInformation(string.Format(LogMessage.PostRequestLog, nameof(GetByIdAsync), id, traceIdentifier));
-
-            var responseProduct = new ProductDTO {
-             Id=product.Id,
-              Name=product.Name,
-              Description=product.Description,
-               DeliveryPrice=product.DeliveryPrice,
-               Price=product.DeliveryPrice
+            var responseProduct = new ProductDTO
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                DeliveryPrice = product.DeliveryPrice,
+                Price = product.DeliveryPrice
             };
 
             return Ok(responseProduct);

@@ -17,11 +17,9 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
     public class DeleteTest : IDisposable
     {
         private Database moqDatabase;
-        private Mock<ILogger<ProductsController>> moqLogger;
 
         public DeleteTest()
         {
-            moqLogger = new Mock<ILogger<ProductsController>>();
             var options = new DbContextOptionsBuilder<Database>().UseInMemoryDatabase(databaseName: SampleDataV1.Database).Options;
             moqDatabase = new Database(options);
         }
@@ -30,7 +28,7 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
         public async Task DeleteAsync_Deletes_Product_Successfully_With_Valid_Product_Id()
         {
             //Given
-            var sut = new ProductsController(moqLogger.Object, moqDatabase)
+            var sut = new ProductsController(moqDatabase)
             {
                 ControllerContext = new ControllerContext()
             };
@@ -53,7 +51,6 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
         public void Dispose()
         {
             moqDatabase = null;
-            moqLogger = null;
         }
     }
 }

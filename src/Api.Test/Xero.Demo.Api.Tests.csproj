@@ -39,7 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Api\Coding.Challenge.Api\Xero.Demo.Api.csproj" />
+    <ProjectReference Include="..\Api\Xero.Demo.Api.csproj" />
   </ItemGroup>
-
 </Project>

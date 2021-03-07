@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{B55D2BE1-7C69-4EF0-BBB2-F1B8D0F9C8C4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xero.Demo.Api", "src\Api\Coding.Challenge.Api\Xero.Demo.Api.csproj", "{5D8B62B2-549D-44B4-BAEA-D95246B461FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xero.Demo.Api", "src\Api\Xero.Demo.Api.csproj", "{5D8B62B2-549D-44B4-BAEA-D95246B461FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api.Test", "Api.Test", "{84CAFD70-C5BC-45F5-8066-1898CD37ED15}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xero.Demo.Api.Tests", "src\Api.Test\Coding.Challenge.Api.Tests\Xero.Demo.Api.Tests.csproj", "{7825EF30-568B-428A-8125-C63AA149B101}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xero.Demo.Api.Tests", "src\Api.Test\Xero.Demo.Api.Tests.csproj", "{7825EF30-568B-428A-8125-C63AA149B101}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

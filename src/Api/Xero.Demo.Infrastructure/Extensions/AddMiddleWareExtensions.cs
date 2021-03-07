@@ -27,8 +27,6 @@ namespace Xero.Demo.Api.Domain.Extension
                 ;
             });
 
-            //services.AddScoped<IDatabase>(provider => provider.GetService<Database>());
-
             services.AddLocalizationServices();
 
             services.AddApiVersioning(options =>
@@ -47,9 +45,6 @@ namespace Xero.Demo.Api.Domain.Extension
             services.AddSwaggerGen(c =>
                 {
                     c.OperationFilter<SwaggerDefaultValues>();
-
-                    //var xmlFile = $"Xero.Demo.Api.xml";
-                    //c.IncludeXmlComments(System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile));
                 });
 
             services.AddFeatureManagement();

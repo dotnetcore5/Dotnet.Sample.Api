@@ -2,9 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.IO;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Xero.Demo.Api.Xero.Demo.Infrastructure.Extensions
@@ -15,12 +13,10 @@ namespace Xero.Demo.Api.Xero.Demo.Infrastructure.Extensions
         private readonly ILogger _logger;
         private readonly RecyclableMemoryStreamManager _recyclableMemoryStreamManager;
 
-        public RequestResponseLoggingMiddleware(RequestDelegate next,
-                                                ILoggerFactory loggerFactory)
+        public RequestResponseLoggingMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
         {
             _next = next;
-            _logger = loggerFactory
-                      .CreateLogger<RequestResponseLoggingMiddleware>();
+            _logger = loggerFactory.CreateLogger<RequestResponseLoggingMiddleware>();
             _recyclableMemoryStreamManager = new RecyclableMemoryStreamManager();
         }
 

@@ -61,6 +61,8 @@
             public const string Editor = "Editor";
             public const string Reader = "Reader";
             public const string None = "None";
+
+            public static string User { get; internal set; }
         }
     }
 }

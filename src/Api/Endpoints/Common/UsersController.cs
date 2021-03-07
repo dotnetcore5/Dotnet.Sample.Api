@@ -1,42 +1,30 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Xero.Demo.Api.Xero.Demo.Domain.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using Xero.Demo.Api.Domain;
+using Xero.Demo.Api.Domain.Extension;
+using Xero.Demo.Api.Xero.Demo.Domain.Services;
+using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
 namespace Xero.Demo.Api.Endpoints.Common
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UsersController : ControllerBase
+    [ApiVersion(ApiVersionNumbers.V1)]
+    [ApiVersion(ApiVersionNumbers.V2)]
+    public class UsersController : BaseApiController
     {
-        private readonly IUserService _user;
+        private readonly IUserService _userService;
 
-        public UsersController(IUserService user)
+        public UsersController(IUserService userService)
         {
-            this._user = user;
+            this._userService = userService;
         }
 
         [HttpPost("authenticate")]
-        public IActionResult Authenticate(AuthenticateRequest model)
+        public IActionResult Authenticate(string culture = "en-US")
         {
-            var response = _user.Authenticate(model);
+            var response = _userService.Authenticate();
 
-            if (response == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
+            if (response == null) return BadRequest(ModelState.GetErrorMessages());
 
             return Ok(response);
-        }
-
-        [Authorize]
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var users = _user.GetAll();
-            return Ok(users);
         }
     }
 }

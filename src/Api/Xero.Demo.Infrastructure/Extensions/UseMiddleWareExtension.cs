@@ -22,28 +22,22 @@ namespace Xero.Demo.Api.Domain.Extension
     {
         public static void UseMiddleware(this IApplicationBuilder app, IApiVersionDescriptionProvider provider, EFStringLocalizerFactory localizerFactory)
         {
-            app.UseHttpsRedirection().UseRouting().UseAuthorization().UseSwagger().UseSwaggerUI(options =>
+            AddLocalizationExtension._e = localizerFactory.Create(null);
+            var supportedCultures = new List<CultureInfo> { new CultureInfo("en-US"), new CultureInfo("fr-FR") };
+            var requestLocalizationOptions = new RequestLocalizationOptions { SupportedCultures = supportedCultures, SupportedUICultures = supportedCultures };
+            requestLocalizationOptions.RequestCultureProviders.Insert(0, new JsonRequestCultureProvider());
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader())
+                .UseRouting().UseAuthentication().UseAuthorization().UseRequestResponseLogging().UseMiddleware<JwtMiddleware>().UseSwagger().UseSwaggerUI(options =>
             {
                 foreach (var description in provider.ApiVersionDescriptions)
                 {
                     options.SwaggerEndpoint(string.Format(CONSTANTS.SwaggerDetails.Endpoints, description.GroupName), description.GroupName.ToUpperInvariant());
                 }
-            });
-
-            AddLocalizationExtension._e = localizerFactory.Create(null);
-
-            var supportedCultures = new List<CultureInfo> { new CultureInfo("en-US"), new CultureInfo("fr-FR") };
-
-            var requestLocalizationOptions = new RequestLocalizationOptions { SupportedCultures = supportedCultures, SupportedUICultures = supportedCultures };
-            requestLocalizationOptions.RequestCultureProviders.Insert(0, new JsonRequestCultureProvider());
-            app.UseRequestLocalization(requestLocalizationOptions);
-            app.UseRequestResponseLogging();
-            app.UseMiddleware<JwtMiddleware>();
-            app.UseAuthentication();
-            app.UseCors(x => x
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader());
+            }).UseRequestLocalization(requestLocalizationOptions);
 
             app.UseEndpoints(endpoints =>
             {

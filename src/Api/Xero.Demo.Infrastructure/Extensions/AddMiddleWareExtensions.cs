@@ -19,9 +19,9 @@ namespace Xero.Demo.Api.Domain.Extension
         public static void AddServices(this IServiceCollection services, IConfiguration Configuration)
         {
             services.AddControllers();
-            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-            services.AddRolesAndPolicyAuthorization();
+            services.Configure<JwtSettings>(Configuration.GetSection("JwtSettings"));
             services.AddJwtAuthentication(Configuration);
+            services.AddSecurity();
             services.AddDbContext<Database>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString(CONSTANTS.SqlLite))
@@ -61,20 +61,19 @@ namespace Xero.Demo.Api.Domain.Extension
                     }; ;
                     c.AddSecurityDefinition("jwt_auth", securityDefinition);
 
-                    // Make sure swagger UI requires a Bearer token specified
-                    OpenApiSecurityScheme securityScheme = new OpenApiSecurityScheme()
+                    c.AddSecurityRequirement(new OpenApiSecurityRequirement()
                     {
-                        Reference = new OpenApiReference()
                         {
-                            Id = "jwt_auth",
-                            Type = ReferenceType.SecurityScheme
-                        }
-                    };
-                    OpenApiSecurityRequirement securityRequirements = new OpenApiSecurityRequirement()
-{
-    {securityScheme, new string[] { }},
-};
-                    c.AddSecurityRequirement(securityRequirements);
+                            new OpenApiSecurityScheme()
+                            {
+                                Reference = new OpenApiReference()
+                                {
+                                    Id = "jwt_auth",
+                                    Type = ReferenceType.SecurityScheme
+                                }
+                            },
+                            new string[] { }},
+                    });
                 });
 
             services.AddFeatureManagement();

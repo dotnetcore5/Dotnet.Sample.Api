@@ -7,7 +7,6 @@ using Xero.Demo.Api.Datastore;
 using Xero.Demo.Api.Domain;
 using Xero.Demo.Api.Domain.Extension;
 using Xero.Demo.Api.Domain.Models;
-using Xero.Demo.Api.Xero.Demo.Domain.Models;
 using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
 namespace Xero.Demo.Api.Endpoints.V1.Products

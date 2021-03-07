@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Xero.Demo.Api.Domain.Extension;
 using Xero.Demo.Api.Domain.Languages;
+using Xero.Demo.Api.Xero.Demo.Infrastructure.Extensions;
 
 namespace Xero.Demo.Api.Domain
 {

@@ -1,5 +1,5 @@
-﻿using Rest.Api.Tests.EndpointTests.UnitTests.V1.TestData;
-using Rest.Api.Tests.Setup;
+﻿using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
+using Xero.Demo.Api.Tests.Setup;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,10 +7,10 @@ using System.Linq;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Xunit;
-using Rest.Api.Domain;
-using Rest.Api.Domain.Models;
+using Xero.Demo.Api.Domain;
+using Xero.Demo.Api.Domain.Models;
 
-namespace Rest.Api.Tests.EndpointTests.IntegrationTests
+namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
 {
     [Trait("Category", "Integration")]
     public class ProductControllerTest : IDisposable
@@ -24,7 +24,7 @@ namespace Rest.Api.Tests.EndpointTests.IntegrationTests
 
         [Theory]
         [InlineData("en-US", "1")]
-        [InlineData("en-US", "2")]
+        //[InlineData("en-US", "2")]
         public async Task GetAsync_Returns_200(string culture, string version)
         {
             // Given
@@ -93,24 +93,6 @@ namespace Rest.Api.Tests.EndpointTests.IntegrationTests
 
             // When
             var response = await client.PutAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version) + $"/{id}", putRequestPayload);
-
-            // Then
-            Assert.Equal(System.Net.HttpStatusCode.NoContent, response.StatusCode);
-        }
-
-        [Theory]
-        [InlineData("en-US", "1")]
-        //[InlineData("en-US", "2")]
-        public async Task DeleteAsync_Returns_204(string culture, string version)
-        {
-            // Given
-            var client = factory.CreateClient();
-            var addProductResponse = await client.PostAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version), SampleDataV1.Product);
-            var addedProduct = JsonConvert.DeserializeObject<Product>(await addProductResponse.Content.ReadAsStringAsync());
-            var id = addedProduct.Id;
-
-            // When
-            var response = await client.DeleteAsync(string.Format(SampleDataV1.productEndpoint, culture, version) + $"/{id}");
 
             // Then
             Assert.Equal(System.Net.HttpStatusCode.NoContent, response.StatusCode);

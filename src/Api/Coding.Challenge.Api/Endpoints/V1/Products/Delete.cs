@@ -1,12 +1,12 @@
-﻿using Rest.Api.Domain.Extension;
+﻿using Xero.Demo.Api.Domain.Extension;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
-using static Rest.Api.Domain.Models.CONSTANTS;
+using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
-namespace Rest.Api.Endpoints.V1.Products
+namespace Xero.Demo.Api.Endpoints.V1.Products
 {
     public partial class ProductsController
     {
@@ -36,7 +36,7 @@ namespace Rest.Api.Endpoints.V1.Products
             if (product == default) return NotFound(string.Format(CustomException.NotFoundException, id));
 
             var productRemoved = _db.Products.Remove(product);
-            rowCountDeleted = await _db.SaveAsync();
+            rowCountDeleted = await _db.SaveChangesAsync();
 
             _logger.LogInformation(string.Format(LogMessage.PostRequestLog, nameof(DeleteAsync), id, traceIdentifier));
 

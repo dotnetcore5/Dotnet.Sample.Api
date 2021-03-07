@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Rest.Api": {
+    "Xero.Demo.Api": {
       "commandName": "Project",
       "launchUrl": "swagger",
       "launchBrowser": true,

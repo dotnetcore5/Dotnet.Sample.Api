@@ -1,12 +1,12 @@
-﻿using Rest.Api.Domain.Models;
+﻿using Xero.Demo.Api.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static Rest.Api.Domain.Models.CONSTANTS;
+using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
-namespace Rest.Api.Endpoints.V2.Products
+namespace Xero.Demo.Api.Endpoints.V2.Products
 {
     public partial class ProductsController
     {

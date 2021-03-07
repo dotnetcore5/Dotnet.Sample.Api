@@ -1,7 +1,7 @@
-﻿using Rest.Api.Domain.Models;
+﻿using Xero.Demo.Api.Domain.Models;
 using System.Collections.Generic;
 
-namespace Rest.Api.Tests.EndpointTests.UnitTests.V2.TestData
+namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V2.TestData
 {
     internal class SampleDataV2
     {

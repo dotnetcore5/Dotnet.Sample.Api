@@ -1,6 +1,6 @@
-﻿using Rest.Api.Endpoints.V1.Products;
-using Rest.Api.Tests.EndpointTests.UnitTests.V1.TestData;
-using Rest.Api.Domain;
+﻿using Xero.Demo.Api.Endpoints.V1.Products;
+using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
+using Xero.Demo.Api.Domain;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,9 +9,9 @@ using Moq;
 using System;
 using System.Threading.Tasks;
 using Xunit;
-using Rest.Api.Datastore;
+using Xero.Demo.Api.Datastore;
 
-namespace Rest.Api.Tests.EndpointTests.UnitTests.V1.Products
+namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
 {
     [Trait("Category", "Unit")]
     public class UpdateTest : IDisposable
@@ -40,7 +40,7 @@ namespace Rest.Api.Tests.EndpointTests.UnitTests.V1.Products
             };
 
             var product = await moqDatabase.Products.AddAsync(SampleDataV1.Product);      //adding the product to be database
-            await moqDatabase.SaveAsync();                                              //saving the product to be updated
+            await moqDatabase.SaveChangesAsync();                                              //saving the product to be updated
             product.Entity.Description = SampleDataV1.NewDescription;
 
             //When

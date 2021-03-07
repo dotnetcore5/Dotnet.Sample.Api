@@ -1,13 +1,13 @@
-﻿using Rest.Api.Domain.Extension;
-using Rest.Api.Domain.Models;
+﻿using Xero.Demo.Api.Domain.Extension;
+using Xero.Demo.Api.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
-using static Rest.Api.Domain.Models.CONSTANTS;
+using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
-namespace Rest.Api.Endpoints.V1.Products
+namespace Xero.Demo.Api.Endpoints.V1.Products
 {
     public partial class ProductsController
     {
@@ -35,7 +35,7 @@ namespace Rest.Api.Endpoints.V1.Products
             if (savedProduct == default) return NotFound(string.Format(CustomException.NotFoundException, id));
 
             _db.Products.Update(product);
-            var count = await _db.SaveAsync();
+            var count = await _db.SaveChangesAsync();
 
             _logger.LogInformation(string.Format(LogMessage.PostRequestLog, nameof(DeleteAsync), id, traceIdentifier));
 

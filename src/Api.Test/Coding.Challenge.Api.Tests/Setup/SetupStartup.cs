@@ -1,4 +1,4 @@
-using Rest.Api.Tests.EndpointTests.UnitTests.V1.TestData;
+using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
@@ -7,9 +7,9 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Rest.Api.Datastore;
+using Xero.Demo.Api.Datastore;
 
-namespace Rest.Api.Tests.Setup
+namespace Xero.Demo.Api.Tests.Setup
 {
     public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
     {
@@ -22,7 +22,7 @@ namespace Rest.Api.Tests.Setup
                 services.Remove(descriptor);
 
                 services.AddDbContext<Database>(options => options.UseInMemoryDatabase("TestDB"));
-                services.AddSingleton<IDatabase>(provider => provider.GetService<Database>());
+                //services.AddSingleton<IDatabase>(provider => provider.GetService<Database>());
 
                 var sp = services.BuildServiceProvider();
 

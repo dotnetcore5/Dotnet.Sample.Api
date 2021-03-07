@@ -1,5 +1,5 @@
-﻿using Rest.Api.Endpoints.V2.Products;
-using Rest.Api.Domain.Models;
+﻿using Xero.Demo.Api.Endpoints.V2.Products;
+using Xero.Demo.Api.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,10 +8,10 @@ using Moq;
 using System;
 using System.Threading.Tasks;
 using Xunit;
-using Rest.Api.Tests.EndpointTests.UnitTests.V2.TestData;
-using Rest.Api.Datastore;
+using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V2.TestData;
+using Xero.Demo.Api.Datastore;
 
-namespace Rest.Api.Tests.EndpointTests.UnitTests.V2.Products
+namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V2.Products
 {
     [Trait("Category", "Unit")]
     public class CreateTest : IDisposable

@@ -1,12 +1,12 @@
-using Rest.Api.Domain;
+using Xero.Demo.Api.Domain;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Threading.Tasks;
-using Rest.Api.Datastore;
+using Xero.Demo.Api.Datastore;
 
-namespace Rest.Api
+namespace Xero.Demo.Api
 {
     public class Program
     {

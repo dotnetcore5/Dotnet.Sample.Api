@@ -1,6 +1,6 @@
-﻿using Rest.Api.Domain;
-using Rest.Api.Domain.Extension;
-using Rest.Api.Domain.Models;
+﻿using Xero.Demo.Api.Domain;
+using Xero.Demo.Api.Domain.Extension;
+using Xero.Demo.Api.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -8,10 +8,10 @@ using Microsoft.FeatureManagement.Mvc;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using static Rest.Api.Domain.Models.CONSTANTS;
-using Rest.Api.Datastore;
+using static Xero.Demo.Api.Domain.Models.CONSTANTS;
+using Xero.Demo.Api.Datastore;
 
-namespace Rest.Api.Endpoints.V1.Products
+namespace Xero.Demo.Api.Endpoints.V1.Products
 {
     public partial class ProductsController : BaseApiController
     {

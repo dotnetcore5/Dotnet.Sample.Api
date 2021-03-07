@@ -1,5 +1,4 @@
-﻿using Rest.Api.Endpoints.V1.Products;
-using Rest.Api.Domain;
+﻿using Xero.Demo.Api.Endpoints.V1.Products;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
-using Rest.Api.Domain.Models;
-using Rest.Api.Tests.EndpointTests.UnitTests.V1.TestData;
-using Rest.Api.Datastore;
+using Xero.Demo.Api.Domain.Models;
+using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
+using Xero.Demo.Api.Datastore;
 
-namespace Rest.Api.Tests.EndpointTests.UnitTests.V1.Products
+namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
 {
     [Trait("Category", "Unit")]
     public class ReadTest : IDisposable
@@ -52,7 +51,7 @@ namespace Rest.Api.Tests.EndpointTests.UnitTests.V1.Products
             products.Add(SampleDataV1.Product);
             products.Add(SampleDataV1.Product);
             moqDatabase.Products.AddRange(products);                    //adding the products to be database
-            await moqDatabase.SaveAsync();                              //saving the product to be deleted
+            await moqDatabase.SaveChangesAsync();                              //saving the product to be deleted
 
             //When
             var actualResponse = await sut.GetAsync() as OkObjectResult;
@@ -69,7 +68,7 @@ namespace Rest.Api.Tests.EndpointTests.UnitTests.V1.Products
         {
             //Given
             var product = await moqDatabase.Products.AddAsync(SampleDataV1.Product);      //adding the product to be database
-            await moqDatabase.SaveAsync();                                              //saving the product to be deleted
+            await moqDatabase.SaveChangesAsync();                                              //saving the product to be deleted
 
             //When
             var actualResponse = await sut.GetByIdAsync(product.Entity.Id) as OkObjectResult;

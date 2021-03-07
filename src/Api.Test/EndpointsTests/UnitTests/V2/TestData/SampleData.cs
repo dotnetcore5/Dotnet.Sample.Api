@@ -1,5 +1,5 @@
-﻿using Xero.Demo.Api.Domain.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Xero.Demo.Api.Domain.Models;
 
 namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V2.TestData
 {

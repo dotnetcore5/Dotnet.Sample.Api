@@ -1,16 +1,14 @@
-﻿using Xero.Demo.Api.Endpoints.V1.Products;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Moq;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xunit;
-using Xero.Demo.Api.Domain.Models;
-using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
 using Xero.Demo.Api.Datastore;
+using Xero.Demo.Api.Domain.Models;
+using Xero.Demo.Api.Endpoints.V1.Products;
+using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
+using Xunit;
 
 namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
 {

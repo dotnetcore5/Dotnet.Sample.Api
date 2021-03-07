@@ -1,10 +1,10 @@
-using Xero.Demo.Api.Domain;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Threading.Tasks;
 using Xero.Demo.Api.Datastore;
+using Xero.Demo.Api.Domain;
 
 namespace Xero.Demo.Api
 {

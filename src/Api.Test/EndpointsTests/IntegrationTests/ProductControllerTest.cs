@@ -1,14 +1,14 @@
-﻿using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
-using Xero.Demo.Api.Tests.Setup;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using Xunit;
 using Xero.Demo.Api.Domain;
 using Xero.Demo.Api.Domain.Models;
+using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
+using Xero.Demo.Api.Tests.Setup;
+using Xunit;
 
 namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
 {

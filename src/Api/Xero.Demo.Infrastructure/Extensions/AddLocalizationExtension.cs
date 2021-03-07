@@ -1,8 +1,8 @@
-﻿using Xero.Demo.Api.Domain.Languages;
-using Microsoft.AspNetCore.Routing;
+﻿using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
+using Xero.Demo.Api.Domain.Languages;
 
 namespace Xero.Demo.Api.Domain.Infrastructure.Extensions
 {

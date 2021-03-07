@@ -1,10 +1,9 @@
-﻿using Xero.Demo.Api.Domain.Extension;
-using Xero.Demo.Api.Domain.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
+using Xero.Demo.Api.Domain.Extension;
+using Xero.Demo.Api.Domain.Models;
 using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
 namespace Xero.Demo.Api.Endpoints.V1.Products

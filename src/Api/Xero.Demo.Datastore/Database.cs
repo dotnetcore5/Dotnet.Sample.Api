@@ -1,6 +1,6 @@
-﻿using Xero.Demo.Api.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Xero.Demo.Api.Domain.Models;
 
 namespace Xero.Demo.Api.Datastore
 {

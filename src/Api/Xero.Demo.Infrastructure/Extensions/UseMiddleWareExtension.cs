@@ -1,12 +1,8 @@
-﻿using Xero.Demo.Api.Domain.Infrastructure.Extensions;
-using Xero.Demo.Api.Domain.Languages;
-using Xero.Demo.Api.Domain.Models;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,7 +11,9 @@ using System.Net;
 using System.Net.Mime;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+using Xero.Demo.Api.Domain.Infrastructure.Extensions;
+using Xero.Demo.Api.Domain.Languages;
+using Xero.Demo.Api.Domain.Models;
 using Xero.Demo.Api.Xero.Demo.Infrastructure.Extensions;
 
 namespace Xero.Demo.Api.Domain.Extension

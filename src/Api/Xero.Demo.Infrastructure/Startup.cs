@@ -1,5 +1,3 @@
-using Xero.Demo.Api.Domain.Extension;
-using Xero.Demo.Api.Domain.Languages;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
@@ -7,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Xero.Demo.Api.Domain.Extension;
+using Xero.Demo.Api.Domain.Languages;
 
 namespace Xero.Demo.Api.Domain
 {

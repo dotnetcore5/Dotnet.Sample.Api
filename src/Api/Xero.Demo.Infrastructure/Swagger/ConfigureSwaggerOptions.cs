@@ -1,10 +1,10 @@
-﻿using Xero.Demo.Api.Domain.Models;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
+﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
+using Xero.Demo.Api.Domain.Models;
 
 namespace Xero.Demo.Api.Domain.Extension
 {

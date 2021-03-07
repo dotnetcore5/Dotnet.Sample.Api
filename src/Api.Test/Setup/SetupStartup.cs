@@ -1,4 +1,3 @@
-using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +7,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Xero.Demo.Api.Datastore;
+using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
 
 namespace Xero.Demo.Api.Tests.Setup
 {

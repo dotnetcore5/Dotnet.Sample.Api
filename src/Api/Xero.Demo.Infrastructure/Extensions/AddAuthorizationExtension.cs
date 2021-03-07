@@ -1,7 +1,7 @@
-﻿using Xero.Demo.Api.Domain.Security;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using System.Security.Claims;
+using Xero.Demo.Api.Domain.Security;
 
 namespace Xero.Demo.Api.Domain.Infrastructure
 {

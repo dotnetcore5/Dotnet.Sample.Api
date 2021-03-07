@@ -1,6 +1,6 @@
-﻿using Xero.Demo.Api.Domain.Infrastructure.Languages;
-using Microsoft.Extensions.Localization;
+﻿using Microsoft.Extensions.Localization;
 using System;
+using Xero.Demo.Api.Domain.Infrastructure.Languages;
 
 namespace Xero.Demo.Api.Domain.Languages
 {

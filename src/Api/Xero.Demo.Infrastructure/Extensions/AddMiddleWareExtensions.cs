@@ -1,6 +1,4 @@
-﻿using Xero.Demo.Api.Domain.Infrastructure.Extensions;
-using Xero.Demo.Api.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -8,6 +6,8 @@ using Microsoft.FeatureManagement;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using Xero.Demo.Api.Datastore;
+using Xero.Demo.Api.Domain.Infrastructure.Extensions;
+using Xero.Demo.Api.Domain.Models;
 
 namespace Xero.Demo.Api.Domain.Extension
 {

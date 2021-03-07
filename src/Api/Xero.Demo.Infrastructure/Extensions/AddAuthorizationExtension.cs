@@ -55,17 +55,23 @@ namespace Xero.Demo.Api.Domain.Infrastructure
 
         public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            services.AddAuthentication(x =>
             {
-                options.RequireHttpsMetadata = false;
-                options.Audience = "http://localhost:5001/";
-                options.Authority = "http://localhost:5000/";
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["AppSettings:Secret"])),
-                    ClockSkew = TimeSpan.Zero
-                };
-            });
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                        .AddJwtBearer(x =>
+                        {
+                            x.RequireHttpsMetadata = false;
+                            x.SaveToken = true;
+                            x.TokenValidationParameters = new TokenValidationParameters
+                            {
+                                ValidateIssuerSigningKey = true,
+                                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("hdftasdvjrlvfvfjyvwevfcmdfkjsdnhvzfmbnsdfvm")),
+                                ValidateIssuer = false,
+                                ValidateAudience = false
+                            };
+                        });
             return services;
         }
     }

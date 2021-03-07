@@ -31,7 +31,7 @@ namespace Xero.Demo.Api.Domain.Extension
                 //.LogTo(Console.WriteLine)
                 ;
             });
-
+            services.AddCors();
             services.AddLocalizationServices();
 
             services.AddApiVersioning(options =>

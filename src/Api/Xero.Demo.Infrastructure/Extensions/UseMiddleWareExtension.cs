@@ -40,7 +40,11 @@ namespace Xero.Demo.Api.Domain.Extension
             app.UseRequestResponseLogging();
             app.UseMiddleware<JwtMiddleware>();
             app.UseAuthentication();
-            app.UseAuthorization();
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

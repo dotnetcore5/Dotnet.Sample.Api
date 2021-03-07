@@ -38,6 +38,9 @@ namespace Xero.Demo.Api.Domain.Extension
             requestLocalizationOptions.RequestCultureProviders.Insert(0, new JsonRequestCultureProvider());
             app.UseRequestLocalization(requestLocalizationOptions);
             app.UseRequestResponseLogging();
+            app.UseMiddleware<JwtMiddleware>();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

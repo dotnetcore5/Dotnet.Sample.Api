@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.FeatureManagement.Mvc;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         /// <param name="product">Enter the product</param>
         /// <param name="culture">Enter the culture</param>
         /// <returns></returns>
-        //[Authorize("ShouldContainRole")]
+        [Authorize("ShouldContainRole")]
         [FeatureGate(Features.PRODUCT)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpPost("", Name = RouteNames.PostAsync)]

@@ -14,7 +14,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         private readonly bool deleted = rowCountDeleted != 1;
 
         /// <summary>
-        /// Delete product by sending valid JWT token provided through . 'api/{culture}/v1/Login/Admin'
+        /// Delete product by sending valid JWT token provided through only 'api/{culture}/v1/Login/Admin' endpoint
         /// </summary>
         /// <param name="id">Enter the product id</param>
         /// <param name="culture"></param>

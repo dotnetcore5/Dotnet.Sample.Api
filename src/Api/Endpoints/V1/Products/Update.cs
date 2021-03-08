@@ -12,7 +12,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
     public partial class ProductsController
     {
         /// <summary>
-        /// Get products by sending valid JWT token provided through . 'api/en-US/v1/Login/Editor'
+        /// Get products by sending valid JWT token provided wither through 'api/en-US/v1/Login/Admin' or 'api/en-US/v1/Login/Editor'
         /// </summary>
         /// <param name="id">Enter the product id</param>
         /// <param name="product">Enter the product</param>

@@ -20,6 +20,7 @@ namespace Xero.Demo.Api.Domain.Models
         [JsonIgnore]
         public bool IsNew { get; }
     }
+
     public class ProductDTO
     {
         public Guid Id { get; set; }

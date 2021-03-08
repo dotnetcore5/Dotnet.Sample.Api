@@ -1,15 +1,13 @@
-﻿using Xero.Demo.Api.Domain;
-using Xero.Demo.Api.Domain.Extension;
-using Xero.Demo.Api.Domain.Models;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Microsoft.FeatureManagement.Mvc;
-using System;
-using System.Linq;
 using System.Threading.Tasks;
-using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 using Xero.Demo.Api.Datastore;
+using Xero.Demo.Api.Domain;
+using Xero.Demo.Api.Domain.Extension;
+using Xero.Demo.Api.Domain.Models;
+using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
 namespace Xero.Demo.Api.Endpoints.V1.Products
 {
@@ -23,12 +21,12 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         }
 
         /// <summary>
-        /// Add product.
+        /// Add product by sending valid JWT token provided through only 'api/{culture}/v1/Login/Admin' endpoint
         /// </summary>
         /// <param name="product">Enter the product</param>
         /// <param name="culture">Enter the culture</param>
         /// <returns></returns>
-        //[Authorize("ShouldContainRole")]
+        [Authorize(Policy = Policy.ShouldBeAnAdmin)]
         [FeatureGate(Features.PRODUCT)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpPost("", Name = RouteNames.PostAsync)]

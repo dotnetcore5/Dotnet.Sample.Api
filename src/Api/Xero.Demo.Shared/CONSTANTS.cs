@@ -7,7 +7,7 @@
         public static string[] Languages = { "en-US", "fr-FR" };
 
         public const string LanguageLocation = "Xero.Demo.Infrastructure/Languages/Resources/{0}.json";
-        public const string WELCOME = "Welcome";
+        public const string Authorization = "Authorization";
 
         public class RouteNames
         {
@@ -16,12 +16,7 @@
             public const string PostAsync = "PostAsync";
             public const string PutAsync = "PutAsync";
             public const string DeleteAsync = "DeleteAsync";
-        }
-
-        public class LogMessage
-        {
-            public const string PreRequestLog = "Handling {0} with id {1} :: traceIdentifier: {2}";
-            public const string PostRequestLog = "Handled {0} with id {1} :: traceIdentifier: {2}";
+            public const string RouteAttribute = "api/{culture:culture}/v{version:apiVersion}/[controller]";
         }
 
         public class CustomException
@@ -44,6 +39,12 @@
             public const string V2 = "2.0";
         }
 
+        public class ApiAnnotations
+        {
+            public const string Produces = "application/json";
+            public const string Consumes = "application/json";
+        }
+
         public class SwaggerDetails
         {
             public const string Endpoints = "/swagger/{0}/swagger.json";
@@ -60,7 +61,13 @@
             public const string Admin = "Admin";
             public const string Editor = "Editor";
             public const string Reader = "Reader";
-            public const string None = "None";
+        }
+
+        public class Policy
+        {
+            public const string ShouldBeAnAdmin = "ShouldBeAnAdmin";
+            public const string ShouldBeAnEditor = "ShouldBeAnEditor";
+            public const string ShouldBeAReader = "ShouldBeAReader";
         }
     }
 }

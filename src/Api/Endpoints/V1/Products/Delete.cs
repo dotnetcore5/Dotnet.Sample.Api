@@ -1,9 +1,9 @@
-﻿using Xero.Demo.Api.Domain.Extension;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
+using Xero.Demo.Api.Domain.Extension;
 using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
 namespace Xero.Demo.Api.Endpoints.V1.Products
@@ -14,11 +14,12 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         private readonly bool deleted = rowCountDeleted != 1;
 
         /// <summary>
-        /// Delete product.
+        /// Delete product by sending valid JWT token provided through only 'api/{culture}/v1/Login/Admin' endpoint
         /// </summary>
         /// <param name="id">Enter the product id</param>
         /// <param name="culture"></param>
         /// <returns></returns>
+        [Authorize(Policy = Policy.ShouldBeAnAdmin)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpDelete("{id}", Name = RouteNames.DeleteAsync)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

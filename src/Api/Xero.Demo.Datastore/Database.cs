@@ -1,11 +1,9 @@
-﻿using Xero.Demo.Api.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Xero.Demo.Api.Domain.Models;
 
 namespace Xero.Demo.Api.Datastore
 {
-    //dotnet ef migrations add InitialCreate -p Api\Xero.Demo.Api.Domain\Xero.Demo.Api.Domain.csproj -s Api.Test\Xero.Demo.Api.Test\Xero.Demo.Api.Tests.csproj
-    //dotnet ef database update -p Api\Xero.Demo.Api.Domain\Xero.Demo.Api.Domain.csproj -s Api.Test\Xero.Demo.Api.Tests\Xero.Demo.Api.Tests.csproj
     public interface IDatabase
     {
         DbSet<Product> Products { get; set; }

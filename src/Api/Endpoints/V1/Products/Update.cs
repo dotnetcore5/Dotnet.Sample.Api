@@ -1,10 +1,10 @@
-﻿using Xero.Demo.Api.Domain.Extension;
-using Xero.Demo.Api.Domain.Models;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
+using Xero.Demo.Api.Domain.Extension;
+using Xero.Demo.Api.Domain.Models;
 using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
 namespace Xero.Demo.Api.Endpoints.V1.Products
@@ -12,12 +12,13 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
     public partial class ProductsController
     {
         /// <summary>
-        /// Edit product.
+        /// Get products by sending valid JWT token provided wither through 'api/en-US/v1/Login/Admin' or 'api/en-US/v1/Login/Editor'
         /// </summary>
         /// <param name="id">Enter the product id</param>
         /// <param name="product">Enter the product</param>
         /// <param name="culture"></param>
         /// <returns></returns>
+        [Authorize(Policy = Policy.ShouldBeAnEditor)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpPut("{id}", Name = RouteNames.PutAsync)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

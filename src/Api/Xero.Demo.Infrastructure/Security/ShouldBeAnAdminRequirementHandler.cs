@@ -19,7 +19,7 @@ namespace Xero.Demo.Api.Domain.Security
 
             var claim = context.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role);
 
-            if (claim.Value == Roles.Admin || claim.Value == Roles.Editor || claim.Value == Roles.Reader) context.Succeed(requirement);
+            if (claim.Value == Roles.Admin) context.Succeed(requirement);
 
             return Task.CompletedTask;
         }

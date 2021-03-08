@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 using Xero.Demo.Api.Domain.Extension;
@@ -10,9 +11,6 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
 {
     public partial class ProductsController
     {
-        private static int rowCountDeleted = 0;
-        private readonly bool deleted = rowCountDeleted != 1;
-
         /// <summary>
         /// Delete product by sending valid JWT token provided through only 'api/{culture}/v1/Login/Admin' endpoint
         /// </summary>
@@ -32,11 +30,12 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
             var product = await _db.Products.FindAsync(id);
 
             if (product == default) return NotFound(string.Format(CustomException.NotFoundException, id));
+            var removedProduct = _db.Products.Remove(product);
+            var stateDeleted = removedProduct.State == EntityState.Deleted;
 
-            _db.Products.Remove(product);
-            rowCountDeleted = await _db.SaveChangesAsync();
+            var rowCountDeleted = await _db.SaveChangesAsync();
 
-            return deleted ? NoContent() : StatusCode(StatusCodes.Status500InternalServerError);
+            return stateDeleted && rowCountDeleted == 1 ? NoContent() : StatusCode(StatusCodes.Status500InternalServerError);
         }
     }
 }

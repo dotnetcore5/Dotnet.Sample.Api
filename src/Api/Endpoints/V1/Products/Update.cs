@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 using Xero.Demo.Api.Domain.Extension;
@@ -32,10 +33,13 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
 
             if (savedProduct == default) return NotFound(string.Format(CustomException.NotFoundException, id));
 
-            _db.Products.Update(product);
+            var updatedProduct = _db.Products.Update(product);
+
+            var stateUpdated = updatedProduct.State == EntityState.Modified;
+
             var count = await _db.SaveChangesAsync();
 
-            return count == 1 ? NoContent() : StatusCode(StatusCodes.Status500InternalServerError);
+            return stateUpdated && count == 1 ? NoContent() : StatusCode(StatusCodes.Status500InternalServerError);
         }
     }
 }

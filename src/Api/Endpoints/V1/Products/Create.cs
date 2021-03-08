@@ -37,18 +37,21 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         {
             if (!ModelState.IsValid) return BadRequest(ModelState.GetErrorMessages());
 
-            var entity = await _db.Products.AddAsync(product);
+            var addedProduct = await _db.Products.AddAsync(product);
+
+            var stateAded = addedProduct.State == Microsoft.EntityFrameworkCore.EntityState.Added;
+
             var count = await _db.SaveChangesAsync();
 
             var responseProduct = new ProductDTO
             {
-                DeliveryPrice = entity.Entity.DeliveryPrice,
-                Description = entity.Entity.Description,
-                Id = entity.Entity.Id,
-                Name = entity.Entity.Name,
-                Price = entity.Entity.Price
+                DeliveryPrice = addedProduct.Entity.DeliveryPrice,
+                Description = addedProduct.Entity.Description,
+                Id = addedProduct.Entity.Id,
+                Name = addedProduct.Entity.Name,
+                Price = addedProduct.Entity.Price
             };
-            return count == 1 ? CreatedAtRoute(RouteNames.GetByIdAsync, new { id = responseProduct.Id, culture }, responseProduct) : StatusCode(StatusCodes.Status500InternalServerError);
+            return stateAded && count == 1 ? CreatedAtRoute(RouteNames.GetByIdAsync, new { id = responseProduct.Id, culture }, responseProduct) : StatusCode(StatusCodes.Status500InternalServerError);
         }
     }
 }

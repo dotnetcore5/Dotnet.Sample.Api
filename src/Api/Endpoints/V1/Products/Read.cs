@@ -46,6 +46,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         /// Get product by id by sending valid JWT token provided through 'api/{culture}/v1/Login/Admin' or 'api/en-US/v1/Login/Editor' or 'api/{culture}/v1/Login/Reader'
         /// </summary>
         /// <param name="id">Enter the id of product</param>
+        /// <param name="culture"></param>
         /// <returns>Returns list of products</returns>
         [Authorize(Policy = Policy.ShouldBeAReader)]
         [ApiVersion(ApiVersionNumbers.V1)]
@@ -53,7 +54,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductDTO))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetByIdAsync(Guid id)
+        public async Task<IActionResult> GetByIdAsync(Guid id, string culture = "en-US")
         {
             if (!ModelState.IsValid || id == Guid.Empty) return BadRequest(ModelState.GetErrorMessages());
 

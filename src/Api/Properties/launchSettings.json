@@ -10,13 +10,6 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "Xero.Demo.Api": {
-      "commandName": "Project",
       "launchUrl": "swagger",
       "launchBrowser": true,
       "environmentVariables": {
@@ -24,5 +17,14 @@
       },
       "applicationUrl": "http://localhost:5000"
     }
+  },
+  "Xero.Demo.Api": {
+    "commandName": "Project",
+    "launchUrl": "swagger",
+    "launchBrowser": true,
+    "environmentVariables": {
+      "ASPNETCORE_ENVIRONMENT": "Development"
+    },
+    "applicationUrl": "http://localhost:5000"
   }
-}
+} }

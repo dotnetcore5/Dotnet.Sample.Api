@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         /// <param name="id">Enter the product id</param>
         /// <param name="culture"></param>
         /// <returns></returns>
+        [Authorize(Policy = "ShouldBeAnAdmin")]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpDelete("{id}", Name = RouteNames.DeleteAsync)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

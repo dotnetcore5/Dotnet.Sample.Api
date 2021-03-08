@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         /// <param name="product">Enter the product</param>
         /// <param name="culture"></param>
         /// <returns></returns>
+        [Authorize(Policy = "ShouldBeAReader")]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpPut("{id}", Name = RouteNames.PutAsync)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

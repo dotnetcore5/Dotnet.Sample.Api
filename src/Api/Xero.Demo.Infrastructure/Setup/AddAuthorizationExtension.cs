@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Security.Claims;
 using System.Text;
+using Xero.Demo.Api.Domain.Security;
 using Xero.Demo.Api.Xero.Demo.Domain.Services;
 
 namespace Xero.Demo.Api.Domain.Infrastructure
@@ -32,7 +35,40 @@ namespace Xero.Demo.Api.Domain.Infrastructure
                             };
                         });
 
-            services.AddAuthorization();
+            services.AddAuthorization(
+                config =>
+                {
+                    config.AddPolicy("ShouldBeAnAdmin", options =>
+                    {
+                        options.RequireAuthenticatedUser();
+                        options.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);
+                        options.Requirements.Add(new ShouldBeAnAdminRequirement());
+                    });
+
+                    config.AddPolicy("ShouldBeAnEditor", options =>
+                    {
+                        options.RequireClaim(ClaimTypes.Role);
+                        options.RequireRole("Reader");
+                        options.RequireAuthenticatedUser();
+                        options.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);
+                        options.Requirements.Add(new ShouldBeAnEditorRequirement());
+                    });
+
+                    config.AddPolicy("ShouldBeAReader", options =>
+                    {
+                        options.RequireClaim(ClaimTypes.Role);
+                        options.RequireRole("Reader");
+                        options.RequireAuthenticatedUser();
+                        options.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);
+                        options.Requirements.Add(new ShouldBeAReaderRequirement());
+                    });
+
+                    config.AddPolicy("ShouldContainRole", options =>
+                        options.RequireClaim(ClaimTypes.Role));
+                });
+            services.AddScoped<IAuthorizationHandler, ShouldBeAnAdminRequirementHandler>();
+            services.AddScoped<IAuthorizationHandler, ShouldBeAReaderAuthorizationHandler>();
+            services.AddScoped<IAuthorizationHandler, ShouldBeAnEditorRequirementHandler>();
             return services;
         }
     }

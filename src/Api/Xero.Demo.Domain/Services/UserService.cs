@@ -47,7 +47,7 @@ namespace Xero.Demo.Api.Xero.Demo.Domain.Services
                             new Claim("id", userInfo.Id.ToString()),
                             new Claim(JwtRegisteredClaimNames.Sub, userInfo.Username),
                             new Claim("Name", userInfo.Name+userInfo.Name.ToString()),
-                            new Claim("Role",userInfo.Role),
+                            new Claim(ClaimTypes.Role,userInfo.Role),
                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         },
                 expires: DateTime.Now.AddMinutes(10),

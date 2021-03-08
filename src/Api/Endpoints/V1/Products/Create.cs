@@ -26,7 +26,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         /// <param name="product">Enter the product</param>
         /// <param name="culture">Enter the culture</param>
         /// <returns></returns>
-        [Authorize]
+        [Authorize(Policy = "ShouldBeAnAdmin")]
         [FeatureGate(Features.PRODUCT)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpPost("", Name = RouteNames.PostAsync)]

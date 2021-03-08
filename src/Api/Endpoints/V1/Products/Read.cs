@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,6 +18,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         /// List of products.
         /// </summary>
         /// <returns>Returns list of products</returns>
+        [Authorize(Policy = "ShouldBeAReader")]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpGet("", Name = RouteNames.GetAsync)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProductDTO>))]
@@ -44,6 +46,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         /// </summary>
         /// <param name="id">Enter the id of product</param>
         /// <returns>Returns list of products</returns>
+        [Authorize(Policy = "ShouldBeAReader")]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpGet("{id}", Name = RouteNames.GetByIdAsync)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductDTO))]

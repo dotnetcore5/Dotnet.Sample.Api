@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Xero.Demo.Api.Datastore;
+using Xero.Demo.Api.Tests.EndpointTests.IntegrationTests;
 using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
 
 namespace Xero.Demo.Api.Tests.Setup
@@ -22,7 +24,6 @@ namespace Xero.Demo.Api.Tests.Setup
                 services.Remove(descriptor);
 
                 services.AddDbContext<Database>(options => options.UseInMemoryDatabase("TestDB"));
-
                 var sp = services.BuildServiceProvider();
 
                 using var scope = sp.CreateScope();

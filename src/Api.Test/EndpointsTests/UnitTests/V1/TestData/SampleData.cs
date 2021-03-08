@@ -8,6 +8,7 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData
     {
         public static string productEndpoint = "/api/{0}/v{1}/products", DatabaseString = "Filename=Product.db", TraceIdentifier = "TraceIdentifier", Database = "Database", NewDescription = "NewDescription";
         public static Guid ProductId = Guid.NewGuid();
+        public static string readerLoginEndpoint = "/api/{0}/v{1}/login/{2}";
 
         public static Product Product
         {
@@ -15,7 +16,6 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData
             {
                 return new Product
                 {
-                    //Id = ProductId,
                     Name = "product1",
                     Description = "Description",
                     Price = 11,
@@ -29,14 +29,6 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData
             get
             {
                 return new List<Product> { Product };
-            }
-        }
-
-        public static Dictionary<string, string> Traits
-        {
-            get
-            {
-                return new Dictionary<string, string> { { "Test1", "Unit" }, { "Test2", "Integration" } };
             }
         }
     }

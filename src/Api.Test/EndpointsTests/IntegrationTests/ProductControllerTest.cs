@@ -49,7 +49,7 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
         {
             // Given
             var client = factory.CreateClient();
-            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, Roles.Reader), null);
+            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, Roles.Admin), null);
             var authDetails = JsonConvert.DeserializeObject<AuthenticateResponse>(await authResponse.Content.ReadAsStringAsync());
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authDetails.Token);
             var addProductResponse = await client.PostAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version), SampleDataV1.Product);
@@ -92,13 +92,12 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
             var putRequestPayload = new Product
             {
                 Id = products.FirstOrDefault().Id,
-                Name = products.FirstOrDefault().Name,
-                DeliveryPrice = products.FirstOrDefault().DeliveryPrice,
-                Price = products.FirstOrDefault().Price,
-                Description = products.FirstOrDefault().Description
+                Name = "Newname",
+                DeliveryPrice = 11,
+                Price = 22,
+                Description = "newDescription"
             };
-
-            client = await SetupHttpClient(Roles.Reader, culture, version);
+            client = await SetupHttpClient(Roles.Editor, culture, version);
 
             // When
             var response = await client.PutAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version) + $"/{id}", putRequestPayload);
@@ -110,7 +109,7 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
         private async Task<HttpClient> SetupHttpClient(string role, string culture, string version)
         {
             var client = factory.CreateClient();
-            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, Roles.Reader), null);
+            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, role), null);
             var authDetails = JsonConvert.DeserializeObject<AuthenticateResponse>(await authResponse.Content.ReadAsStringAsync());
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authDetails.Token);
             return client;

@@ -5,6 +5,9 @@ using Microsoft.Extensions.Options;
 using Microsoft.FeatureManagement;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System;
+using System.IO;
+using System.Reflection;
 using Xero.Demo.Api.Datastore;
 using Xero.Demo.Api.Domain.Infrastructure;
 using Xero.Demo.Api.Domain.Infrastructure.Extensions;
@@ -48,6 +51,9 @@ namespace Xero.Demo.Api.Domain.Extension
 
             services.AddSwaggerGen(c =>
                 {
+                    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.XML";
+                    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                    c.IncludeXmlComments(xmlPath);
                     c.OperationFilter<SwaggerDefaultValues>();
                     var securityDefinition = new OpenApiSecurityScheme()
                     {
@@ -59,7 +65,6 @@ namespace Xero.Demo.Api.Domain.Extension
                         Type = SecuritySchemeType.Http,
                     }; ;
                     c.AddSecurityDefinition("jwt_auth", securityDefinition);
-
                     c.AddSecurityRequirement(new OpenApiSecurityRequirement()
                     {
                         {

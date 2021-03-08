@@ -15,7 +15,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
     public partial class ProductsController
     {
         /// <summary>
-        /// List of products.
+        /// Get products by sending valid JWT token provided through . 'api/{culture}/v1/Login/Reader'
         /// </summary>
         /// <returns>Returns list of products</returns>
         [Authorize(Policy = Policy.ShouldBeAReader)]
@@ -43,7 +43,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         }
 
         /// <summary>
-        /// Get product by id.
+        /// Get product by id by sending valid JWT token provided through . 'api/{culture}/v1/Login/Reader'
         /// </summary>
         /// <param name="id">Enter the id of product</param>
         /// <returns>Returns list of products</returns>

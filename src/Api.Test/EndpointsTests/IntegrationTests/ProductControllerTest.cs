@@ -1,16 +1,10 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using System.Security.Claims;
-using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Xero.Demo.Api.Domain;
 using Xero.Demo.Api.Domain.Models;
@@ -22,24 +16,6 @@ using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
 namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
 {
-    public class TestAuthHandler : AuthenticationHandler<AuthenticationSchemeOptions>
-    {
-        public TestAuthHandler(IOptionsMonitor<AuthenticationSchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
-            : base(options, logger, encoder, clock) { }
-
-        protected override Task<AuthenticateResult> HandleAuthenticateAsync()
-        {
-            var claims = new[] { new Claim(ClaimTypes.Role, CONSTANTS.Roles.Reader) };
-            var identity = new ClaimsIdentity(claims, "Test");
-            var principal = new ClaimsPrincipal(identity);
-            var ticket = new AuthenticationTicket(principal, "Test");
-
-            var result = AuthenticateResult.Success(ticket);
-
-            return Task.FromResult(result);
-        }
-    }
-
     [Trait("Category", "Integration")]
     public class ProductControllerTest : IDisposable
     {
@@ -52,7 +28,6 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
 
         [Theory]
         [InlineData("en-US", "1")]
-        //[InlineData("en-US", "2")] :: TO-DO
         public async Task GetAsync_Returns_200(string culture, string version)
         {
             // Given
@@ -93,10 +68,7 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
         public async Task PostAsync_Returns_201(string culture, string version)
         {
             // Given
-            var client = factory.CreateClient();
-            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, Roles.Admin), null);
-            var authDetails = JsonConvert.DeserializeObject<AuthenticateResponse>(await authResponse.Content.ReadAsStringAsync());
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authDetails.Token);
+            var client = await SetupHttpClient(Roles.Admin, culture, version);
 
             // When
             var response = await client.PostAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version), SampleDataV1.Product);
@@ -110,13 +82,12 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
         public async Task PutAsync_Returns_204(string culture, string version)
         {
             // Given
-            var client = factory.CreateClient();
-            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, Roles.Editor), null);
-            var authDetails = JsonConvert.DeserializeObject<AuthenticateResponse>(await authResponse.Content.ReadAsStringAsync());
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authDetails.Token);
+            var client = await SetupHttpClient(Roles.Admin, culture, version);
+            await client.PostAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version), SampleDataV1.Product);
 
             var productResponse = await client.GetAsync(string.Format(SampleDataV1.productEndpoint, culture, version));
             var products = JsonConvert.DeserializeObject<List<ProductDTO>>(await productResponse.Content.ReadAsStringAsync());
+
             var id = products.FirstOrDefault().Id;
             var putRequestPayload = new Product
             {
@@ -127,11 +98,22 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
                 Description = products.FirstOrDefault().Description
             };
 
+            client = await SetupHttpClient(Roles.Reader, culture, version);
+
             // When
             var response = await client.PutAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version) + $"/{id}", putRequestPayload);
 
             // Then
             Assert.Equal(System.Net.HttpStatusCode.NoContent, response.StatusCode);
+        }
+
+        private async Task<HttpClient> SetupHttpClient(string role, string culture, string version)
+        {
+            var client = factory.CreateClient();
+            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, Roles.Reader), null);
+            var authDetails = JsonConvert.DeserializeObject<AuthenticateResponse>(await authResponse.Content.ReadAsStringAsync());
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authDetails.Token);
+            return client;
         }
 
         public void Dispose()

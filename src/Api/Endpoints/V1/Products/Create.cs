@@ -21,7 +21,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         }
 
         /// <summary>
-        /// Add product.
+        /// Add product by sending valid JWT token provided through . 'api/{culture}/v1/Login/Admin'
         /// </summary>
         /// <param name="product">Enter the product</param>
         /// <param name="culture">Enter the culture</param>

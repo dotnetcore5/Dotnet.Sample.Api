@@ -21,7 +21,7 @@ namespace Xero.Demo.Api.Xero.Demo.Infrastructure.Languages
 
             var culture = parts[2];
 
-            culture = culture ?? "en-US";
+            culture ??= "en-US";
 
             return Task.FromResult(new ProviderCultureResult(culture));
         }

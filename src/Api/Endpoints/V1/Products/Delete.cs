@@ -33,7 +33,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
 
             if (product == default) return NotFound(string.Format(CustomException.NotFoundException, id));
 
-            var productRemoved = _db.Products.Remove(product);
+            _db.Products.Remove(product);
             rowCountDeleted = await _db.SaveChangesAsync();
 
             return deleted ? NoContent() : StatusCode(StatusCodes.Status500InternalServerError);

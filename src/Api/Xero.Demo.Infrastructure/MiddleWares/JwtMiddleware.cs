@@ -27,12 +27,12 @@ namespace Xero.Demo.Api.Xero.Demo.Infrastructure.Extensions
         {
             var token = context.Request.Headers[CONSTANTS.Authorization].FirstOrDefault()?.Split(" ").Last();
 
-            if (token != null) attachUserToContext(context, userService, token);
+            if (token != null) AttachUserToContext(context, userService, token);
 
             await _next(context);
         }
 
-        private void attachUserToContext(HttpContext context, IUserService userService, string token)
+        private void AttachUserToContext(HttpContext context, IUserService userService, string token)
         {
             try
             {

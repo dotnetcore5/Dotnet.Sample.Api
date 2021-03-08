@@ -42,10 +42,12 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
         public async Task GetAsync_Gets_All_Product_Successfully()
         {
             //Given
-            var products = new List<Product>();
-            products.Add(SampleDataV1.Product);
-            products.Add(SampleDataV1.Product);
-            moqDatabase.Products.AddRange(products);                    //adding the products to be database
+            var products = new List<Product>
+            {
+                SampleDataV1.Product,
+                SampleDataV1.Product
+            };
+            moqDatabase.Products.AddRange(products);                            //adding the products to be database
             await moqDatabase.SaveChangesAsync();                              //saving the product to be deleted
 
             //When

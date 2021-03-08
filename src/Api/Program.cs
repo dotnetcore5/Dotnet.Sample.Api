@@ -14,14 +14,6 @@ namespace Xero.Demo.Api
         {
             var webHost = CreateHostBuilder(args).Build();
 
-            using (var scope = webHost.Services.CreateScope())
-            {
-                var context = scope.ServiceProvider.GetRequiredService<Database>();
-
-                var productCount = await context.Products.CountAsync();
-                if (context != null && context.Database != null && productCount == 0)
-                    await context.Database.MigrateAsync();
-            }
             await webHost.RunAsync();
         }
 

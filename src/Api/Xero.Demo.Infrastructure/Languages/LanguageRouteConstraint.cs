@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Xero.Demo.Api.Domain.Models;
 
 namespace Xero.Demo.Api.Domain.Languages
 {
@@ -11,7 +12,7 @@ namespace Xero.Demo.Api.Domain.Languages
                 return false;
 
             var culture = values["culture"].ToString();
-            return culture.ToLowerInvariant() == "en-US".ToLowerInvariant() || culture.ToLowerInvariant() == "fr-FR".ToLowerInvariant();
+            return culture.ToLowerInvariant() == CONSTANTS.Languages[0].ToLowerInvariant() || culture.ToLowerInvariant() == CONSTANTS.Languages[1].ToLowerInvariant();
         }
     }
 }

@@ -18,15 +18,16 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         /// List of products.
         /// </summary>
         /// <returns>Returns list of products</returns>
-        [Authorize(Policy = "ShouldBeAReader")]
+        [Authorize(Policy = Policy.ShouldBeAReader)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpGet("", Name = RouteNames.GetAsync)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProductDTO>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAsync(string culture = "en-US")
         {
+            // ### START ::: The localization can be accessed.
             //var language = AddLocalizationExtension._e[WELCOME];
-            //_logger.LogInformation(string.Format(AddLocalizationExtension._e[WELCOME].Value));
+            // ### END ::: The localization can be accessed.
 
             var products = await _db.Products.AsQueryable().ToListAsync();
 
@@ -46,7 +47,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         /// </summary>
         /// <param name="id">Enter the id of product</param>
         /// <returns>Returns list of products</returns>
-        [Authorize(Policy = "ShouldBeAReader")]
+        [Authorize(Policy = Policy.ShouldBeAReader)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpGet("{id}", Name = RouteNames.GetByIdAsync)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductDTO))]

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Localization;
 using System;
 using Xero.Demo.Api.Domain.Infrastructure.Languages;
+using Xero.Demo.Api.Domain.Models;
 
 namespace Xero.Demo.Api.Domain.Languages
 {
@@ -14,13 +15,13 @@ namespace Xero.Demo.Api.Domain.Languages
             _db.AddRange(
                 new Culture
                 {
-                    Name = "en-US",
-                    Resources = en_US.GetList()
+                    Name = CONSTANTS.Languages[0],
+                    Resources = CultureInformation.GetList(CONSTANTS.Languages[0])
                 },
                 new Culture
                 {
-                    Name = "fr-FR",
-                    Resources = fr_fR.GetList()
+                    Name = CONSTANTS.Languages[1],
+                    Resources = CultureInformation.GetList(CONSTANTS.Languages[1])
                 }
             );
             _db.SaveChanges();

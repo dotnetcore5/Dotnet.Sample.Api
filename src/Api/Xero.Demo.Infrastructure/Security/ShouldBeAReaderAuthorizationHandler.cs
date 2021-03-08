@@ -14,14 +14,12 @@ namespace Xero.Demo.Api.Domain.Security
     {
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ShouldBeAReaderRequirement requirement)
         {
-            if (!context.User.HasClaim(x => x.Type == ClaimTypes.Email)) return Task.CompletedTask;
+            //can be a custom logic for the authoriztion
+            if (!context.User.HasClaim(x => x.Type == ClaimTypes.Role)) return Task.CompletedTask;
 
             var claim = context.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role);
 
-            if (claim.Value == Roles.Reader)
-            {
-                context.Succeed(requirement);
-            }
+            if (claim.Value == Roles.Reader) context.Succeed(requirement);
 
             return Task.CompletedTask;
         }

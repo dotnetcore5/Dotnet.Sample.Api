@@ -22,7 +22,6 @@ namespace Xero.Demo.Api.Tests.Setup
                 services.Remove(descriptor);
 
                 services.AddDbContext<Database>(options => options.UseInMemoryDatabase("TestDB"));
-                //services.AddSingleton<IDatabase>(provider => provider.GetService<Database>());
 
                 var sp = services.BuildServiceProvider();
 

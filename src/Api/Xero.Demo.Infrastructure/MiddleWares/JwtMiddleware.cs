@@ -6,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xero.Demo.Api.Domain.Models;
 using Xero.Demo.Api.Xero.Demo.Domain.Models;
 using Xero.Demo.Api.Xero.Demo.Domain.Services;
 
@@ -24,7 +25,7 @@ namespace Xero.Demo.Api.Xero.Demo.Infrastructure.Extensions
 
         public async Task Invoke(HttpContext context, IUserService userService)
         {
-            var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            var token = context.Request.Headers[CONSTANTS.Authorization].FirstOrDefault()?.Split(" ").Last();
 
             if (token != null) attachUserToContext(context, userService, token);
 

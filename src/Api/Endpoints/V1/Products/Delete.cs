@@ -19,7 +19,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         /// <param name="id">Enter the product id</param>
         /// <param name="culture"></param>
         /// <returns></returns>
-        [Authorize(Policy = "ShouldBeAnAdmin")]
+        [Authorize(Policy = Policy.ShouldBeAnAdmin)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpDelete("{id}", Name = RouteNames.DeleteAsync)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

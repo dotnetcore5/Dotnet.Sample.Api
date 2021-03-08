@@ -11,7 +11,7 @@ namespace Xero.Demo.Api.Xero.Demo.Domain.Services
 {
     public interface IUserService
     {
-        AuthenticateResponse Authenticate();
+        AuthenticateResponse Authenticate(string role);
 
         User GetById(int userId);
     }
@@ -25,9 +25,9 @@ namespace Xero.Demo.Api.Xero.Demo.Domain.Services
             _jwtSettings = jwtSettings.Value;
         }
 
-        public AuthenticateResponse Authenticate()
+        public AuthenticateResponse Authenticate(string role)
         {
-            var user = User.Users.First();
+            var user = User.Users.First(u => u.Role == role);
 
             return new AuthenticateResponse(user, GenerateJWTToken(user), user.Role);
         }

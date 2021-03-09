@@ -40,40 +40,34 @@ The overall objective of the applications :
 
 >   1. Please clone or download the repository from [![github](https://img.shields.io/badge/git-hub-blue.svg?style=plastic)](https://github.com/AJEETX/Dotnet.Sample.Api) 
 >   
->   2. Create a folder and place the downloaded repository
->   3. Open **Visual Studio Code** and open the newly created folder where the repository is downloaded
+>   2. Create a folder and place the downloaded repository and unzip if downloaded.
 >   
-##### (a) To start the backend webapi service
+>   3. Open the solution file through **Visual Studio2019** or through **Visual Studio Code** open the newly created folder where the repository is downloaded
+>   
+##### (a) To start the webapi
    
->   1. Within **Visual Studio Code** open a command terminal by pressing the computer keyboard buttons `Control` and `~`
+>   1. Through **Visual Studio2019**, click **F5** button to run the webapi, Please make sure the webapi project is select as startup project.
 >    
->   2. Within the terminal, browse to folder location named as **"src\Api"** 
->  
->   3. Restore the dependencies, type `dotnet restore` on the terminal
+>   2. Or through **Visual Studio Code**, open a command terminal by pressing the computer keyboard buttons `Control` and `~`
 >
->   4. Run the webapi project, type `dotnet run` on the terminal
+>       (a) Within the terminal, browse to folder location named as **"src\Api"** 
+>  
+>       (b) Restore the dependencies, type `dotnet restore` on the terminal
+>
+>       (c) Run the webapi project, type `dotnet run` on the terminal
 >   
->   5. **Api** [backend service] shall start running on port **5000**
+>   3. **Api** [backend service] shall start running on port **5000**
 
 ```
 For better experience please chrome browser
 ```
 
 ##### (b) To run the unit test project
->   1. Within **Visual Studio Code** Open a new command terminal
 >   
->   2. Within the new terminal, browse to the folder named as **"src\Api.Test"**
+>   1. Through **Visual Studio2019**, open the **Test Explorer** and run the tests.
 >   
->   3. To run the tests, type `dotnet test` on the terminal
-
-#### Deploy to HEROKU
-> [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ajeetx/dotnet.sample.api)
-
-### Support or Contact
-
-Having any trouble? Please read out this [documentation](https://github.com/AJEETX/Dotnet.Sample.Api/blob/master/README.md) or [contact](mailto:ajeetkumar@email.com) and to sort it out.
-
- [![HitCount](http://hits.dwyl.com/ajeetx/dotnetsampleapi.svg)](http://hits.dwyl.com/ajeetx/dotnetsampleapi) | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/Dotnet.Sample.Api.svg?style=plastic)|
- | --- | --- |
-
-
+>   2. Or through **Visual Studio Code** Open a new command terminal
+>   
+>       (a) Within the new terminal, browse to the folder named as **"src\Api.Test"**
+>   
+>       (b) To run the tests, type `dotnet test` on the terminal

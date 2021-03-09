@@ -1,6 +1,6 @@
 # Dotnet.Sample.Api
 
-dotnet 5 web api with versioning, swagger, localization, policy-based jwt token based security, etc.
+dotnet 5 web api with version, documentation through swagger, localization, claim based jwt token security, feature toggling, centralized logging, etc.
 
 [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)  | ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/Dotnet.Sample.Api.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/Dotnet.Sample.Api.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/Dotnet.Sample.Api.svg)  |[![Visual Studio 2019](https://img.shields.io/badge/VS-2019-blue.svg?style=plastic)](https://visualstudio.microsoft.com/downloads/)|[![Visual Studio Code](https://img.shields.io/badge/VS-Code-blue.svg?style=plastic)](https://code.visualstudio.com/)
 |  ---          | ---        | ---      | ---        | --- |  --- |

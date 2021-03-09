@@ -14,8 +14,8 @@ The repository consists of projects as below:
 
 | # |Project Name | Project detail | location| Environment |
 | ---| ---  | ---           | ---          | --- |
-| 1 | Xero.Demo.Api | Dotnet5 WebApi as backend  |  Api folder | [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)|
-| 2 | Xero.Demo.Api.Tests | Tests for webapi |  Api.Test folder | [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)| 
+| 1 | Xero.Demo.Api | Dotnet5 WebApi as backend  |  **src\Api** folder | [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)|
+| 2 | Xero.Demo.Api.Tests | Tests for webapi |  **src\Api.Test** folder | [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)| 
 
 ### Summary
 
@@ -47,7 +47,7 @@ The overall objective of the applications :
    
 >   1. Within **Visual Studio Code** open a command terminal by pressing the computer keyboard buttons `Control` and `~`
 >    
->   2. Within the terminal, browse to folder location named as **"Api"** 
+>   2. Within the terminal, browse to folder location named as **"src\Api"** 
 >  
 >   3. Restore the dependencies, type `dotnet restore` on the terminal
 >
@@ -62,7 +62,7 @@ For better experience please chrome browser
 ##### (b) To run the unit test project
 >   1. Within **Visual Studio Code** Open a new command terminal
 >   
->   2. Within the new terminal, browse to the folder named as **"Api.Test"**
+>   2. Within the new terminal, browse to the folder named as **"src\Api.Test"**
 >   
 >   3. To run the tests, type `dotnet test` on the terminal
 

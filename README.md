@@ -66,6 +66,9 @@ For better experience please chrome browser
 >   
 >   3. To run the tests, type `dotnet test` on the terminal
 
+#### Deploy to HEROKU
+> [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ajeetx/dotnet.sample.api)
+
 ### Support or Contact
 
 Having any trouble? Please read out this [documentation](https://github.com/AJEETX/Dotnet.Sample.Api/blob/master/README.md) or [contact](mailto:ajeetkumar@email.com) and to sort it out.

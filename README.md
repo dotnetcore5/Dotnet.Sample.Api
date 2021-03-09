@@ -1,6 +1,6 @@
 # Dotnet.Sample.Api
 
-dotnet 5 web api with versioning, swagger, localization, jwt token based security, etc.
+dotnet 5 web api with versioning, swagger, localization, policy-based jwt token based security, etc.
 
 [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)  | ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/Dotnet.Sample.Api.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/Dotnet.Sample.Api.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/Dotnet.Sample.Api.svg) 
 |  ---          | ---        | ---      | ---        | 
@@ -70,7 +70,7 @@ For better experience please chrome browser
 
 Having any trouble? Please read out this [documentation](https://github.com/AJEETX/Dotnet.Sample.Api/blob/master/README.md) or [contact](mailto:ajeetkumar@email.com) and to sort it out.
 
- [![HitCount](http://hits.dwyl.io/ajeetx/react.webapi.demo/projects/1.svg)](http://hits.dwyl.io/ajeetx/Dotnet.Sample.Api/projects/1) | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/Dotnet.Sample.Api.svg?style=plastic)|
+ [![HitCount](http://hits.dwyl.com/ajeetx/dotnetsampleapi.svg)](http://hits.dwyl.com/ajeetx/dotnetsampleapi) | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/Dotnet.Sample.Api.svg?style=plastic)|
  | --- | --- |
 
 

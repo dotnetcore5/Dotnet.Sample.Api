@@ -7,6 +7,8 @@ dotnet 5 web api with version, documentation through swagger, localization, clai
 
 ---------------------------------------
 
+<img src='swagger.png' alt='swagger documentation' />
+
 ## Repository codebase
  
 The repository consists of projects as below:

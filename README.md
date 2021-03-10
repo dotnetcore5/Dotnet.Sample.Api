@@ -9,22 +9,24 @@
 ## Highlights
 
 >  ##### dotnet 5 web api, 
-> 
->  ##### versioning,
-> 
+ 
+>  ##### api versioning,
+ 
 >  ##### documentation through swagger, 
-> 
+ 
 >  ##### localization, 
-> 
+ 
 >  ##### claim based jwt token security, 
-> 
+ 
 >  ##### feature toggling, 
-> 
+ 
 >  ##### centralized logging/exception-handling,
-> 
+ 
 >  ##### centralized exception-handling,
-> 
->  ##### endpoint rate limiting [To-do]
+ 
+>  ##### [to-do] endpoint rate limiting/ throttling,
+
+>  ##### [to-do] Distributed Caching
 
 
 ---------------------------------------

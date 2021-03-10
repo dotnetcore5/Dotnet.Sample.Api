@@ -99,3 +99,7 @@ For better experience please chrome browser
 >       (a) Within the new terminal, browse to the folder named as **"src\Api.Test"**
 >   
 >       (b) To run the tests, type `dotnet test` on the terminal
+
+
+-----------------------------------------------------------------------
+![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=ajeetx/dotnet.sample.api)

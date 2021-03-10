@@ -20,7 +20,7 @@
  
 >  ##### feature toggling, 
  
->  ##### centralized logging/exception-handling,
+>  ##### request-response logging middleware,
  
 >  ##### centralized exception-handling,
  

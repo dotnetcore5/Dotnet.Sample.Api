@@ -29,7 +29,7 @@ namespace Xero.Demo.Api.Xero.Demo.Domain.Services
         {
             var user = User.Users.First(u => u.Role == role);
 
-            return new AuthenticateResponse() { Id = user.Id, Token = GenerateJWTToken(user), Name = user.Name, Role = user.Role, Username = user.Username };
+            return new AuthenticateResponse { Id = user.Id, Token = GenerateJWTToken(user), Name = user.Name, Role = user.Role, Username = user.Username };
         }
 
         public User GetById(int userId)

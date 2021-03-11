@@ -20,7 +20,7 @@ namespace Xero.Demo.Api.Endpoints.V2.Products
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> DeleteAsync(Guid id)
         {
-            await Task.Delay(1);                                                                                        // simulating asynchronous/ non-blocking call
+            await Task.Delay(1).ConfigureAwait(false);                                                                                        // simulating asynchronous/ non-blocking call
             return NoContent();
         }
     }

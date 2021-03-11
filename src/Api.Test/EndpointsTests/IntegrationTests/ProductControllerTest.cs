@@ -97,7 +97,7 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
                 Price = 22,
                 Description = "newDescription"
             };
-            client = await SetupHttpClient(Roles.Editor, culture, version);
+            client = await SetupHttpClient(Roles.Editor, culture, version).ConfigureAwait(false);
 
             // When
             var response = await client.PutAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version) + $"/{id}", putRequestPayload);

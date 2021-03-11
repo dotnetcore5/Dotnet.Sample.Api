@@ -6,7 +6,7 @@ using Xero.Demo.Api.Domain.Languages;
 
 namespace Xero.Demo.Api.Domain.Infrastructure.Extensions
 {
-    public static partial class AddLocalizationExtension
+    public static class AddLocalizationExtension
     {
         public static IStringLocalizer _e; // This is how we access language strings
         public static IConfigurationRoot Configuration { get; set; }

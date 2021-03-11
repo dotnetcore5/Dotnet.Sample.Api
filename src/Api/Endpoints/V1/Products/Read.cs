@@ -29,7 +29,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
             //var language = AddLocalizationExtension._e[WELCOME];
             // ### END ::: The localization can be accessed.
 
-            var products = await _db.Products.AsQueryable().ToListAsync();
+            var products = await _db.Products.AsQueryable().ToListAsync().ConfigureAwait(false);
 
             var res = products.Select(p => new ProductDTO
             {
@@ -56,10 +56,16 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetByIdAsync(Guid id, string culture = "en-US")
         {
-            if (!ModelState.IsValid || id == Guid.Empty) return BadRequest(ModelState.GetErrorMessages());
+            if (!ModelState.IsValid || id == Guid.Empty)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
 
-            var product = await _db.Products.FindAsync(id);
-            if (product == default) return NotFound(string.Format(CustomException.NotFoundException, id));
+            var product = await _db.Products.FindAsync(id).ConfigureAwait(false);
+            if (product == default)
+            {
+                return NotFound(string.Format(CustomException.NotFoundException, id));
+            }
 
             var responseProduct = new ProductDTO
             {

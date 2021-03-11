@@ -15,9 +15,15 @@ namespace Xero.Demo.Api.Xero.Demo.Infrastructure.Languages
             if (httpContext == null) throw new ArgumentNullException(nameof(httpContext));
 
             var parts = httpContext.Request.Path.Value.Split('/');
-            if (parts.Length < 3) return Task.FromResult<ProviderCultureResult>(null);
+            if (parts.Length < 3)
+            {
+                return Task.FromResult<ProviderCultureResult>(null);
+            }
 
-            if (!LocalePattern.IsMatch(parts[2])) return Task.FromResult<ProviderCultureResult>(null);
+            if (!LocalePattern.IsMatch(parts[2]))
+            {
+                return Task.FromResult<ProviderCultureResult>(null);
+            }
 
             var culture = parts[2];
 

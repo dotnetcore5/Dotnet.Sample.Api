@@ -60,7 +60,7 @@ namespace Xero.Demo.Api.Domain.Extension
                     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                     c.IncludeXmlComments(xmlPath);
                     c.OperationFilter<SwaggerDefaultValues>();
-                    var securityDefinition = new OpenApiSecurityScheme()
+                    var securityDefinition = new OpenApiSecurityScheme
                     {
                         Name = "Bearer",
                         BearerFormat = "JWT",
@@ -68,14 +68,14 @@ namespace Xero.Demo.Api.Domain.Extension
                         Description = "Specify the authorization token.",
                         In = ParameterLocation.Header,
                         Type = SecuritySchemeType.Http,
-                    }; ;
+                    };
                     c.AddSecurityDefinition("jwt_auth", securityDefinition);
-                    c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                    c.AddSecurityRequirement(new OpenApiSecurityRequirement
                     {
                         {
-                            new OpenApiSecurityScheme()
+                            new OpenApiSecurityScheme
                             {
-                                Reference = new OpenApiReference()
+                                Reference = new OpenApiReference
                                 {
                                     Id = "jwt_auth",
                                     Type = ReferenceType.SecurityScheme

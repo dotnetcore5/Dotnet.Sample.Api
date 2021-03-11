@@ -29,7 +29,7 @@ namespace Xero.Demo.Api.Endpoints.V2.Products
                 return BadRequest(ModelState.GetErrorMessages());
             }
             // simulating asynchronous/ non-blocking call
-            await Task.Delay(1);
+            await Task.Delay(1).ConfigureAwait(false);
             return NoContent();
         }
     }

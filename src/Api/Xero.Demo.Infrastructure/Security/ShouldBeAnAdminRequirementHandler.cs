@@ -15,11 +15,17 @@ namespace Xero.Demo.Api.Domain.Security
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ShouldBeAnAdminRequirement requirement)
         {
             //can be a custom logic for the authorization
-            if (!context.User.HasClaim(x => x.Type == ClaimTypes.Role)) return Task.CompletedTask;
+            if (!context.User.HasClaim(x => x.Type == ClaimTypes.Role))
+            {
+                return Task.CompletedTask;
+            }
 
             var claim = context.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role);
 
-            if (claim.Value == Roles.Admin) context.Succeed(requirement);
+            if (claim.Value == Roles.Admin)
+            {
+                context.Succeed(requirement);
+            }
 
             return Task.CompletedTask;
         }

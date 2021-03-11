@@ -24,7 +24,7 @@ namespace Xero.Demo.Api.Domain.Extension
 
         private static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
         {
-            var info = new OpenApiInfo()
+            var info = new OpenApiInfo
             {
                 Title = CONSTANTS.SwaggerDetails.Title,
                 Contact = new OpenApiContact { Name = CONSTANTS.SwaggerDetails.ContactName, Email = CONSTANTS.SwaggerDetails.ContactEmail, Url = new Uri(CONSTANTS.SwaggerDetails.ContactUrl) },

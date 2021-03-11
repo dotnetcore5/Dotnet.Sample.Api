@@ -22,7 +22,7 @@ namespace Xero.Demo.Api.Endpoints.V2.Products
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> PostAsync(Product product, string culture)
         {
-            await Task.Delay(1);                                                  // simulating asynchronous/ non-blocking call
+            await Task.Delay(1).ConfigureAwait(false);                                                  // simulating asynchronous/ non-blocking call
             return CreatedAtRoute(
                     RouteNames.GetByIdAsync,
                     new { id = product.Id, culture },

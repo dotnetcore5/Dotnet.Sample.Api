@@ -13,7 +13,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
 {
     public partial class ProductsController : BaseApiController
     {
-        public readonly Database _db;
+        private readonly Database _db;
 
         public ProductsController(Database db)
         {
@@ -40,7 +40,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
                 return BadRequest(ModelState.GetErrorMessages());
             }
 
-            var addedProduct = await _db.Products.AddAsync(product);
+            var addedProduct = await _db.Products.AddAsync(product).ConfigureAwait(false);
 
             var stateAded = addedProduct.State == Microsoft.EntityFrameworkCore.EntityState.Added;
 

@@ -30,7 +30,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
                 return BadRequest(ModelState.GetErrorMessages());
             }
 
-            var product = await _db.Products.FindAsync(id);
+            var product = await _db.Products.FindAsync(id).ConfigureAwait(false);
 
             if (product == default)
             {

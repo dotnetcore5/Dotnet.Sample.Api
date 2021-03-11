@@ -31,7 +31,7 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
                 return BadRequest(ModelState.GetErrorMessages());
             }
 
-            var savedProduct = await _db.Products.FindAsync(id);
+            var savedProduct = await _db.Products.FindAsync(id).ConfigureAwait(false);
 
             if (savedProduct == default)
             {

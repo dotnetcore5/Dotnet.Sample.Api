@@ -1,32 +1,11 @@
 # Dotnet.Sample.Api
 
 
-[![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)  | ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/Dotnet.Sample.Api.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/Dotnet.Sample.Api.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/Dotnet.Sample.Api.svg)  |[![Visual Studio 2019](https://img.shields.io/badge/VS-2019-blue.svg?style=plastic)](https://visualstudio.microsoft.com/downloads/)|[![Visual Studio Code](https://img.shields.io/badge/VS-Code-blue.svg?style=plastic)](https://code.visualstudio.com/)
+[![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)  | ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/Dotnet.Sample.Api.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/Dotnet.Sample.Api.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/Dotnet.Sample.Api.svg)  |[![Visual Studio 2019](https://img.shields.io/badge/VS-2019-blue.svg?style=plastic)](https://visualstudio.microsoft.com/downloads/)|[![Visual Studio Code](https://img.shields.io/badge/VS-Code-blue.svg?style=plastic)](https://code.visualstudio.com/) 
 |  ---          | ---        | ---      | ---        | --- |  --- |
+![Api Versioning](https://img.shields.io/badge/api-versioning-blue.svg?style=plastic)   |   ![Swagger Support](https://img.shields.io/badge/swagger-support-blue.svg?style=plastic)    |    ![Localization](https://img.shields.io/badge/localization-culture-blue.svg?style=plastic)   |  ![Claim-based-token](https://img.shields.io/badge/jwt-token-blue.svg?style=plastic)   |   ![Feature Toggling](https://img.shields.io/badge/feature-toggling-blue.svg?style=plastic)   |   ![Central Logging](https://img.shields.io/badge/central-logging-blue.svg?style=plastic)   
+![Central Logging](https://img.shields.io/badge/central-exceptionHandling-blue.svg?style=plastic)    |   To-Do ::: Endpoint throttling    |   To-do :: Distributed Caching    |  ---   |   ---   |   ---   
 
----------------------------------------
-
-## Highlights
-
->  ##### dotnet 5 web api, 
- 
->  ##### api versioning,
- 
->  ##### documentation through swagger, 
- 
->  ##### localization, 
- 
->  ##### claim based jwt token security, 
- 
->  ##### feature toggling, 
- 
->  ##### request-response logging middleware,
- 
->  ##### centralized exception-handling,
- 
->  ##### [to-do] endpoint rate limiting/ throttling,
-
->  ##### [to-do] Distributed Caching
 
 
 ---------------------------------------

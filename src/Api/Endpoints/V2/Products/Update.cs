@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using Xero.Demo.Api.Domain.Extension;
 using Xero.Demo.Api.Domain.Models;
 using static Xero.Demo.Api.Domain.Models.CONSTANTS;
 
@@ -14,14 +15,19 @@ namespace Xero.Demo.Api.Endpoints.V2.Products
         /// </summary>
         /// <param name="id">Enter the product id</param>
         /// <param name="product">Enter the product</param>
+        /// <param name="culture">Enter the culture</param>
         /// <returns></returns>
         [ApiVersion(ApiVersionNumbers.V2)]
         [HttpPut("{id}", Name = RouteNames.PutAsync)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> PutAsync(Guid id, Product product)
+        public async Task<IActionResult> PutAsync(Guid id, Product product, string culture)
         {
+            if (!ModelState.IsValid && id != product.Id)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
             // simulating asynchronous/ non-blocking call
             await Task.Delay(1);
             return NoContent();

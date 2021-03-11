@@ -38,12 +38,13 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
 
             //When
             var actualResponse = await sut.PostAsync(SampleDataV1.Product, "en-us") as CreatedAtRouteResult;
-            var actualResponsePayload = actualResponse.Value as Product;
+            var actualResponsePayload = actualResponse.Value as ProductDTO;
 
             //Then
             Assert.NotNull(actualResponse);
             Assert.Equal(StatusCodes.Status201Created, actualResponse.StatusCode);
             Assert.Equal(CONSTANTS.RouteNames.GetByIdAsync, actualResponse.RouteName);
+            Assert.Equal(SampleDataV1.Product.Name, actualResponsePayload.Name);
         }
 
         public void Dispose()

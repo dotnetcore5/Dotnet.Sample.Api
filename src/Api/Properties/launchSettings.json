@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "Xero.Demo.Api": {
+    "Dotnet.Sample.Api": {
       "commandName": "Project",
       "launchUrl": "swagger",
       "launchBrowser": true,

@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using static Xero.Demo.Api.Domain.Models.CONSTANTS;
+using static Dotnet.Sample.Shared.CONSTANTS;
 
-namespace Xero.Demo.Api.Endpoints.V2.Products
+namespace Dotnet.Sample.Api.Endpoints.V2.Products
 {
     public partial class ProductsController
     {

@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Dotnet.Sample.Datastore;
+using Dotnet.Sample.Domain.Models;
+using Dotnet.Sample.Infrastructure.Extensions;
+using Dotnet.Sample.Shared;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.FeatureManagement.Mvc;
 using System.Threading.Tasks;
-using Xero.Demo.Api.Datastore;
-using Xero.Demo.Api.Domain;
-using Xero.Demo.Api.Domain.Extension;
-using Xero.Demo.Api.Domain.Models;
-using static Xero.Demo.Api.Domain.Models.CONSTANTS;
+using static Dotnet.Sample.Shared.CONSTANTS;
 
-namespace Xero.Demo.Api.Endpoints.V1.Products
+namespace Dotnet.Sample.Api.Endpoints.V1.Products
 {
     public partial class ProductsController : BaseApiController
     {

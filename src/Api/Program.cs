@@ -1,9 +1,9 @@
+using Dotnet.Sample.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using System.Threading.Tasks;
-using Xero.Demo.Api.Domain;
 
-namespace Xero.Demo.Api
+namespace Dotnet.Sample.Api
 {
     public class Program
     {

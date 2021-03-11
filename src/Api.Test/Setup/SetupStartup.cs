@@ -6,10 +6,10 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Xero.Demo.Api.Datastore;
-using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
+using Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V1.TestData;
+using Dotnet.Sample.Datastore;
 
-namespace Xero.Demo.Api.Tests.Setup
+namespace Dotnet.Sample.Api.Tests.Setup
 {
     public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
     {

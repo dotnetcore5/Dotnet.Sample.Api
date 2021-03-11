@@ -34,7 +34,6 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.Products
             {
                 TraceIdentifier = SampleDataV1.TraceIdentifier
             };
-            var products = await moqDatabase.Products.CountAsync();
 
             //When
             var actualResponse = await sut.PostAsync(SampleDataV1.Product, "en-us") as CreatedAtRouteResult;

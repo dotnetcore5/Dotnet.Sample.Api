@@ -26,19 +26,11 @@ namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V2.Products
         {
             //Given
             using var moqDatabase = new Database(options);
-            var sut = new ProductsController()
-            {
-                ControllerContext = new ControllerContext()
-            };
-            sut.ControllerContext.HttpContext = new DefaultHttpContext
-            {
-                TraceIdentifier = SampleDataV2.TraceIdentifier
-            };
-            var products = await moqDatabase.Products.CountAsync();
+            var sut = new ProductsController();
 
             //When
             var actualResponse = await sut.PostAsync(SampleDataV2.Product, "en-us") as CreatedAtRouteResult;
-            var actualResponsePayload = actualResponse.Value as ProductDTO;
+            var actualResponsePayload = actualResponse.Value as Product;
 
             //Then
             Assert.NotNull(actualResponse);

@@ -1,10 +1,9 @@
-# Dotnet.Sample.Api
-
+# Dotnet.Sample.Api   ![GitHub release](https://img.shields.io/github/release/ajeetx/Dotnet.Sample.Api.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=for-the-badge)                                                                                                                          
 
 [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)  | ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/Dotnet.Sample.Api.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/Dotnet.Sample.Api.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/Dotnet.Sample.Api.svg)  |[![Visual Studio 2019](https://img.shields.io/badge/VS-2019-blue.svg?style=plastic)](https://visualstudio.microsoft.com/downloads/)|[![Visual Studio Code](https://img.shields.io/badge/VS-Code-blue.svg?style=plastic)](https://code.visualstudio.com/) 
 |  ---          | ---        | ---      | ---        | --- |  --- |
 ![Api Versioning](https://img.shields.io/badge/API-VERSIONING-blue.svg?style=plastic) | ![Swagger Support](https://img.shields.io/badge/SWAGGER-SUPPORT-blue.svg?style=plastic)    | ![Localization](https://img.shields.io/badge/LOCALIZATION-CULTURE-blue.svg?style=plastic)   |  ![Claim-based-token](https://img.shields.io/badge/JWT-TOKEN-blue.svg?style=plastic) | ![Feature Toggling](https://img.shields.io/badge/FEATURE-TOGGLE-blue.svg?style=plastic) | ![Central Logging](https://img.shields.io/badge/CENTRAL-LOGGING-blue.svg?style=plastic)
-![Central Logging](https://img.shields.io/badge/EXCEPTION-HANDLING-blue.svg?style=plastic) | `to-to ::: Throttling` | `to-do :: Caching` |  -------------   |   --------------   |   -------------   
+![Central Logging](https://img.shields.io/badge/EXCEPTION-HANDLING-blue.svg?style=plastic) | `to-do: Throttling` | `to-do: Caching` |  -------------   |   --------------   |   -------------   
 
 
 
@@ -81,4 +80,5 @@ For better experience please chrome browser
 
 
 -----------------------------------------------------------------------
-![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=ajeetx/dotnet.sample.api)
+![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=ajeetx/dotnet.sample.api)  | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/Dotnet.Sample.Api.svg?style=plastic)|![license](https://img.shields.io/github/license/ajeetx/Dotnet.Sample.Api.svg?style=plastic)|
+ | --- | --- | ---|

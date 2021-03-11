@@ -4,9 +4,9 @@ using Xero.Demo.Api.Domain.Models;
 
 namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData
 {
-    internal class SampleDataV1
+    internal static class SampleDataV1
     {
-        public static string productEndpoint = "/api/{0}/v{1}/products", DatabaseString = "Filename=Product.db", TraceIdentifier = "TraceIdentifier", Database = "Database", NewDescription = "NewDescription";
+        public const string productEndpoint = "/api/{0}/v{1}/products", DatabaseString = "Filename=Product.db", TraceIdentifier = "TraceIdentifier", Database = "Database", NewDescription = "NewDescription";
         public static Guid ProductId = Guid.NewGuid();
         public static string readerLoginEndpoint = "/api/{0}/v{1}/login/{2}";
 

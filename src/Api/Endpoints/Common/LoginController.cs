@@ -27,7 +27,10 @@ namespace Xero.Demo.Api.Endpoints.Common
         {
             var response = _userService.Authenticate(Roles.Admin);
 
-            if (response == null) return BadRequest(ModelState.GetErrorMessages());
+            if (response == null)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
 
             return Ok(response);
         }
@@ -42,7 +45,10 @@ namespace Xero.Demo.Api.Endpoints.Common
         {
             var response = _userService.Authenticate(Roles.Editor);
 
-            if (response == null) return BadRequest(ModelState.GetErrorMessages());
+            if (response == null)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
 
             return Ok(response);
         }
@@ -57,7 +63,10 @@ namespace Xero.Demo.Api.Endpoints.Common
         {
             var response = _userService.Authenticate(Roles.Reader);
 
-            if (response == null) return BadRequest(ModelState.GetErrorMessages());
+            if (response == null)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
 
             return Ok(response);
         }

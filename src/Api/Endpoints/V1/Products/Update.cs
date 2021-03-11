@@ -26,11 +26,17 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> PutAsync(Guid id, Product product, string culture = "en-US")
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState.GetErrorMessages());
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
 
             var savedProduct = await _db.Products.FindAsync(id);
 
-            if (savedProduct == default) return NotFound(string.Format(CustomException.NotFoundException, id));
+            if (savedProduct == default)
+            {
+                return NotFound(string.Format(CustomException.NotFoundException, id));
+            }
 
             _db.Products.Update(product);
 

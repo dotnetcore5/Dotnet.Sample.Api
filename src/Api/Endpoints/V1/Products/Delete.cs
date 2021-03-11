@@ -25,11 +25,18 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> DeleteAsync(Guid id, string culture = "en-US")
         {
-            if (!ModelState.IsValid || id == Guid.Empty) return BadRequest(ModelState.GetErrorMessages());
+            if (!ModelState.IsValid || id == Guid.Empty)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
 
             var product = await _db.Products.FindAsync(id);
 
-            if (product == default) return NotFound(string.Format(CustomException.NotFoundException, id));
+            if (product == default)
+            {
+                return NotFound(string.Format(CustomException.NotFoundException, id));
+            }
+
             var removedProduct = _db.Products.Remove(product);
             var stateDeleted = removedProduct.State == EntityState.Deleted;
 

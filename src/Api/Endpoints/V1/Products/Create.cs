@@ -35,7 +35,10 @@ namespace Xero.Demo.Api.Endpoints.V1.Products
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> PostAsync(Product product, string culture = "en-US")
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState.GetErrorMessages());
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
 
             var addedProduct = await _db.Products.AddAsync(product);
 

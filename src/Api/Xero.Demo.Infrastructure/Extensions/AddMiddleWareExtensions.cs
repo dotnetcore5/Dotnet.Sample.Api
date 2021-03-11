@@ -22,8 +22,11 @@ namespace Xero.Demo.Api.Domain.Extension
         public static void AddServices(this IServiceCollection services, IConfiguration Configuration)
         {
             services.AddControllers();
+
             services.Configure<JwtSettings>(Configuration.GetSection("JwtSettings"));
+
             services.AddSecurity(Configuration);
+
             services.AddDbContext<Database>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString(CONSTANTS.SqlLite))
@@ -33,7 +36,9 @@ namespace Xero.Demo.Api.Domain.Extension
                 //.LogTo(Console.WriteLine)
                 ;
             });
+
             services.AddCors();
+
             services.AddLocalizationServices();
 
             services.AddApiVersioning(options =>

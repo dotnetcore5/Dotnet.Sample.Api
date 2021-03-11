@@ -32,8 +32,9 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
         {
             // Given
             var client = factory.CreateClient();
-            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, Roles.Reader), null);
-            var authDetails = JsonConvert.DeserializeObject<AuthenticateResponse>(await authResponse.Content.ReadAsStringAsync());
+            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, Roles.Reader), null).ConfigureAwait(false);
+            var strAuthDetails = await authResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var authDetails = JsonConvert.DeserializeObject<AuthenticateResponse>(strAuthDetails);
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authDetails.Token);
 
             // When
@@ -49,11 +50,13 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
         {
             // Given
             var client = factory.CreateClient();
-            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, Roles.Admin), null);
-            var authDetails = JsonConvert.DeserializeObject<AuthenticateResponse>(await authResponse.Content.ReadAsStringAsync());
+            var authResponse = await client.PostAsync(string.Format(SampleDataV1.readerLoginEndpoint, culture, version, Roles.Admin), null).ConfigureAwait(false);
+            var strAuthDetails = await authResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var authDetails = JsonConvert.DeserializeObject<AuthenticateResponse>(strAuthDetails);
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authDetails.Token);
-            var addProductResponse = await client.PostAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version), SampleDataV1.Product);
-            var addedProduct = JsonConvert.DeserializeObject<Product>(await addProductResponse.Content.ReadAsStringAsync());
+            var addProductResponse = await client.PostAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version), SampleDataV1.Product).ConfigureAwait(false);
+            var strProduct = await addProductResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var addedProduct = JsonConvert.DeserializeObject<Product>(strProduct);
             var id = addedProduct.Id;
 
             // When
@@ -68,10 +71,10 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
         public async Task PostAsync_Returns_201(string culture, string version)
         {
             // Given
-            var client = await SetupHttpClient(Roles.Admin, culture, version);
+            var client = await SetupHttpClient(Roles.Admin, culture, version).ConfigureAwait(false);
 
             // When
-            var response = await client.PostAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version), SampleDataV1.Product);
+            var response = await client.PostAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version), SampleDataV1.Product).ConfigureAwait(false);
 
             // Then
             Assert.Equal(System.Net.HttpStatusCode.Created, response.StatusCode);
@@ -82,11 +85,12 @@ namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
         public async Task PutAsync_Returns_204(string culture, string version)
         {
             // Given
-            var client = await SetupHttpClient(Roles.Admin, culture, version);
-            await client.PostAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version), SampleDataV1.Product);
+            var client = await SetupHttpClient(Roles.Admin, culture, version).ConfigureAwait(false);
+            await client.PostAsJsonAsync(string.Format(SampleDataV1.productEndpoint, culture, version), SampleDataV1.Product).ConfigureAwait(false);
 
-            var productResponse = await client.GetAsync(string.Format(SampleDataV1.productEndpoint, culture, version));
-            var products = JsonConvert.DeserializeObject<List<ProductDTO>>(await productResponse.Content.ReadAsStringAsync());
+            var productResponse = await client.GetAsync(string.Format(SampleDataV1.productEndpoint, culture, version)).ConfigureAwait(false);
+            var strProduct = await productResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var products = JsonConvert.DeserializeObject<List<ProductDTO>>(strProduct);
 
             var id = products.FirstOrDefault().Id;
             var putRequestPayload = new Product

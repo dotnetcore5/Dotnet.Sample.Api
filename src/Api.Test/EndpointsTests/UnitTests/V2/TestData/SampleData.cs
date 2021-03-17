@@ -1,6 +1,6 @@
-﻿using Xero.Demo.Api.Domain.Models;
+﻿using Dotnet.Sample.Domain.Models;
 
-namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V2.TestData
+namespace Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V2.TestData
 {
     internal static class SampleDataV2
     {

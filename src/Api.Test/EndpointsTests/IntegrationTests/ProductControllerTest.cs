@@ -6,15 +6,14 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using Xero.Demo.Api.Domain;
-using Xero.Demo.Api.Domain.Models;
-using Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData;
-using Xero.Demo.Api.Tests.Setup;
-using Xero.Demo.Api.Xero.Demo.Domain.Models;
+using Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V1.TestData;
+using Dotnet.Sample.Api.Tests.Setup;
+using Dotnet.Sample.Domain.Models;
 using Xunit;
-using static Xero.Demo.Api.Domain.Models.CONSTANTS;
+using Dotnet.Sample.Infrastructure;
+using static Dotnet.Sample.Shared.CONSTANTS;
 
-namespace Xero.Demo.Api.Tests.EndpointTests.IntegrationTests
+namespace Dotnet.Sample.Api.Tests.EndpointTests.IntegrationTests
 {
     [Trait("Category", "Integration")]
     public class ProductControllerTest : IDisposable

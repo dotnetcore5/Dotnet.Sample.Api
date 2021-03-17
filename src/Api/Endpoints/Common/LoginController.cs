@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Xero.Demo.Api.Domain;
-using Xero.Demo.Api.Domain.Extension;
-using Xero.Demo.Api.Xero.Demo.Domain.Services;
-using static Xero.Demo.Api.Domain.Models.CONSTANTS;
+﻿using Dotnet.Sample.Domain.Services;
+using Dotnet.Sample.Infrastructure.Extensions;
+using Dotnet.Sample.Shared;
+using Microsoft.AspNetCore.Mvc;
+using static Dotnet.Sample.Shared.CONSTANTS;
 
-namespace Xero.Demo.Api.Endpoints.Common
+namespace Dotnet.Sample.Api.Endpoints.Common
 {
     [ApiVersion(ApiVersionNumbers.V1)]
     [ApiVersion(ApiVersionNumbers.V2)]

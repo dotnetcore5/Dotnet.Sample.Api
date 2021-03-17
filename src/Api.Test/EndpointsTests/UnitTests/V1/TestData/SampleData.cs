@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Dotnet.Sample.Domain.Models;
+using System;
 using System.Collections.Generic;
-using Xero.Demo.Api.Domain.Models;
 
-namespace Xero.Demo.Api.Tests.EndpointTests.UnitTests.V1.TestData
+namespace Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V1.TestData
 {
     internal static class SampleDataV1
     {

@@ -1,6 +1,6 @@
 # Dotnet.Sample.Api   ![GitHub release](https://img.shields.io/github/release/ajeetx/Dotnet.Sample.Api.svg?style=for-the-badge)  ![GitHub Release Date](https://img.shields.io/github/release-date/ajeetx/dotnet.sample.api?style=for-the-badge)  ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=for-the-badge)                                                                                                                          
 
-![Central Logging](https://img.shields.io/badge/CENTRAL-LOGGING-ff69b4.svg?style=for-the-badge)  |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/Dotnet.Sample.Api.svg?style=for-the-badge) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/Dotnet.Sample.Api.svg?style=for-the-badge)   | ![Lines of code](https://img.shields.io/tokei/lines/github/ajeetx/dotnet.sample.api?style=for-the-badge)| [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1502c313d0a14671bcefac0d221a005c)](https://www.codacy.com/gh/AJEETX/Dotnet.Sample.Api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AJEETX/Dotnet.Sample.Api&amp;utm_campaign=Badge_Grade) 
+![Centralized Logging](https://img.shields.io/badge/Centralized-LOGGING-ff69b4.svg?style=for-the-badge)  |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/Dotnet.Sample.Api.svg?style=for-the-badge) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/Dotnet.Sample.Api.svg?style=for-the-badge)   | ![Lines of code](https://img.shields.io/tokei/lines/github/ajeetx/dotnet.sample.api?style=for-the-badge)| [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1502c313d0a14671bcefac0d221a005c)](https://www.codacy.com/gh/AJEETX/Dotnet.Sample.Api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AJEETX/Dotnet.Sample.Api&amp;utm_campaign=Badge_Grade) 
 |  ---          | ---        |  ---        | --- |  --- |
  ![Localization](https://img.shields.io/badge/LOCALIZATION-CULTURE-yellow.svg?style=for-the-badge)   | ![Api Versioning](https://img.shields.io/badge/WEB_API-VERSIONING-orange.svg?style=for-the-badge)  | ![Claim-based-token](https://img.shields.io/badge/JWT-TOKEN-red.svg?style=for-the-badge) | ![Feature Toggling](https://img.shields.io/badge/FEATURE-TOGGLE-blue.svg?style=for-the-badge) | [![Maintainability](https://api.codeclimate.com/v1/badges/345eb92c5ece914b7c0d/maintainability)](https://codeclimate.com/github/AJEETX/Dotnet.Sample.Api/maintainability) 
 ![Central Logging](https://img.shields.io/badge/EXCEPTION-HANDLING-critical.svg?style=for-the-badge) |  ![Swagger Support](https://img.shields.io/badge/SWAGGER-SUPPORT-green.svg?style=for-the-badge)  | [![Visual Studio 2019](https://img.shields.io/badge/V_S-2019-blue.svg?style=for-the-badge)](https://visualstudio.microsoft.com/downloads/) |  [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=for-the-badge)](https://dotnet.microsoft.com/download/dotnet/5.0)   |     ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/Dotnet.Sample.Api.svg?style=flat)
@@ -24,10 +24,12 @@ The repository consists of projects as below:
 ### Summary
 
 The overall objective of the applications :
-```
->	A user can Login and jwt authentication is used
->	Once authorized, user can do "CRUD" operation
-```
+
+
+Through the ![login](https://img.shields.io/badge/login-green.svg?style=for-the-badge) endpoint A user can Login and jwt authentication is used. 
+
+Once authorized, user can do "CRUD" operation on the ![products](https://img.shields.io/badge/products-blue.svg?style=for-the-badge) endpoint
+
 
 ### Setup detail
 
@@ -47,11 +49,11 @@ The overall objective of the applications :
 >   
 >   2. Create a folder and place the downloaded repository and unzip if downloaded.
 >   
->   3. Open the solution file through **Visual Studio2019** or through **Visual Studio Code** open the newly created folder where the repository is downloaded
+>   3. Open the solution file through **Visual Studio 2019** or through **Visual Studio Code** open the newly created folder where the repository is downloaded
 >   
 ##### (a) To start the webapi
    
->   1. Through **Visual Studio2019**, click **F5** button to run the webapi, Please make sure the webapi project is select as startup project.
+>   1. Through **Visual Studio 2019**, click **F5** button to run the webapi, Please make sure the webapi project is selected as startup project.
 >    
 >   2. Or through **Visual Studio Code**, open a command terminal by pressing the computer keyboard buttons `Control` and `~`
 >
@@ -61,15 +63,15 @@ The overall objective of the applications :
 >
 >       (c) Run the webapi project, type `dotnet run` on the terminal
 >   
->   3. **Api** [backend service] shall start running on port **5000**
+>   3. **WebApi** shall start running on port **5000**
 
 ```
-For better experience please chrome browser
+For better experience please use chrome browser
 ```
 
 ##### (b) To run the unit test project
 >   
->   1. Through **Visual Studio2019**, open the **Test Explorer** and run the tests.
+>   1. Through **Visual Studio 2019**, open the **Test Explorer** and run the tests.
 >   
 >   2. Or through **Visual Studio Code** Open a new command terminal
 >   

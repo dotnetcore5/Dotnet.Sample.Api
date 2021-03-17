@@ -11,7 +11,7 @@ namespace Dotnet.Sample.Domain.Services
 {
     public interface IUserService
     {
-        AuthenticateResponse Authenticate(string role);
+        AuthenticateResponse Authenticate(string username, string password);
 
         User GetById(int userId);
     }
@@ -25,9 +25,9 @@ namespace Dotnet.Sample.Domain.Services
             _jwtSettings = jwtSettings.Value;
         }
 
-        public AuthenticateResponse Authenticate(string role)
+        public AuthenticateResponse Authenticate(string username, string password)
         {
-            var user = User.Users.First(u => u.Role == role);
+            var user = User.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
 
             return new AuthenticateResponse { Id = user.Id, Token = GenerateJWTToken(user), Name = user.Name, Role = user.Role, Username = user.Username };
         }

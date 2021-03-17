@@ -23,9 +23,9 @@ namespace Dotnet.Sample.Api.Endpoints.Common
         /// <param name="culture">Enter the culture</param>
         /// <returns>Create jwt token for POST and DELETE request for Products</returns>
         [HttpPost(Roles.Admin)]
-        public IActionResult AuthenticateAdmin(string culture = "en-US")
+        public IActionResult AuthenticateAdmin(string username = Roles.Admin, string password = "Password", string culture = "en-US")
         {
-            var response = _userService.Authenticate(Roles.Admin);
+            var response = _userService.Authenticate(username, password);
 
             if (response == null)
             {
@@ -41,9 +41,9 @@ namespace Dotnet.Sample.Api.Endpoints.Common
         /// <param name="culture">Enter the culture</param>
         /// <returns>Create jwt token for PUT request for Products</returns>
         [HttpPost(Roles.Editor)]
-        public IActionResult AuthenticateEditor(string culture = "en-US")
+        public IActionResult AuthenticateEditor(string username = Roles.Editor, string password = "Password", string culture = "en-US")
         {
-            var response = _userService.Authenticate(Roles.Editor);
+            var response = _userService.Authenticate(username, password);
 
             if (response == null)
             {
@@ -59,9 +59,9 @@ namespace Dotnet.Sample.Api.Endpoints.Common
         /// <param name="culture">Enter the culture</param>
         /// <returns>Create jwt token for only GET request for Products</returns>
         [HttpPost(Roles.Reader)]
-        public IActionResult AuthenticateReader(string culture = "en-US")
+        public IActionResult AuthenticateReader(string username = Roles.Reader, string password = "Password", string culture = "en-US")
         {
-            var response = _userService.Authenticate(Roles.Reader);
+            var response = _userService.Authenticate(username, password);
 
             if (response == null)
             {

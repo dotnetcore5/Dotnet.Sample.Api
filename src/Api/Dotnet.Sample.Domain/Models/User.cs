@@ -13,9 +13,9 @@ namespace Dotnet.Sample.Domain.Models
 
         public static List<User> Users = new List<User>
         {
-            new User {Id= 1,Name= "Xero", Username="Admin", Password="Password",Role=Roles.Admin },
-            new User {Id= 2,Name= "Azy", Username="Editor", Password="Password",Role=Roles.Editor},
-            new User {Id= 2,Name= "Azy", Username="Reader", Password="Password",Role=Roles.Reader}
+            new User {Id= 1,Name= "Admin", Username="Admin", Password="Password",Role=Roles.Admin },
+            new User {Id= 2,Name= "Editor", Username="Editor", Password="Password",Role=Roles.Editor},
+            new User {Id= 3,Name= "Reader", Username="Reader", Password="Password",Role=Roles.Reader}
         };
     }
 }

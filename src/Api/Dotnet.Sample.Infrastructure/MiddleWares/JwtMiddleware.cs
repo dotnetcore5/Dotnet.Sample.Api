@@ -15,12 +15,12 @@ namespace Dotnet.Sample.Infrastructure.Middleware
     public class JwtMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly JwtSettings _appSettings;
+        private readonly JwtSettings _jwtSettings;
 
-        public JwtMiddleware(RequestDelegate next, IOptions<JwtSettings> appSettings)
+        public JwtMiddleware(RequestDelegate next, IOptions<JwtSettings> jwtSettings)
         {
             _next = next;
-            _appSettings = appSettings.Value;
+            _jwtSettings = jwtSettings.Value;
         }
 
         public async Task Invoke(HttpContext context, IUserService userService)
@@ -37,7 +37,7 @@ namespace Dotnet.Sample.Infrastructure.Middleware
             try
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_appSettings.SecretKey);
+                var key = Encoding.ASCII.GetBytes(_jwtSettings.SecretKey);
                 tokenHandler.ValidateToken(token, new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = false,

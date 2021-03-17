@@ -81,5 +81,10 @@ For better experience please use chrome browser
 
 
 -----------------------------------------------------------------------
+#### To-do:
+> caching
+> endpoint throttling/rate limit
+
+-----------------------------------------------------------------------
 ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=ajeetx/dotnet.sample.api)  | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/Dotnet.Sample.Api.svg?style=plastic)|![license](https://img.shields.io/github/license/ajeetx/Dotnet.Sample.Api.svg?style=plastic)|
  | --- | --- | ---|

@@ -18,8 +18,8 @@ The repository consists of projects as below:
 
 | # |Project Name | Project detail | location| Environment |
 | ---| ---  | ---           | ---          | --- |
-| 1 | Xero.Demo.Api | Dotnet5 WebApi as backend  |  **src\Api** folder | [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)|
-| 2 | Xero.Demo.Api.Tests | Tests for webapi |  **src\Api.Test** folder | [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)| 
+| 1 | Dotnet.Sample.Api | Dotnet5 WebApi as backend  |  **src\Api** folder | [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)|
+| 2 | Dotnet.Sample.Api.Tests | Tests for webapi |  **src\Api.Test** folder | [![.Net Framework](https://img.shields.io/badge/DotNet-5.0-blue.svg?style=plastic)](https://dotnet.microsoft.com/download/dotnet/5.0)| 
 
 ### Summary
 

@@ -11,7 +11,7 @@ using Dotnet.Sample.Infrastructure.Security;
 
 namespace Dotnet.Sample.Infrastructure.Extensions
 {
-    internal static partial class AddSecurityExtension
+    internal static class AddSecurityExtension
     {
         public static IServiceCollection AddSecurity(this IServiceCollection services, IConfiguration configuration)
         {

@@ -22,7 +22,7 @@ namespace Dotnet.Sample.Api.Endpoints.V2.Products
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> PutAsync(Guid id, Product product, string culture)
+        public virtual async Task<IActionResult> PutAsync(Guid id, Product product, string culture)
         {
             if (!ModelState.IsValid && id != product.Id)
             {

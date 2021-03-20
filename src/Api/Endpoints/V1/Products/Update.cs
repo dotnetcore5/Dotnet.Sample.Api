@@ -24,7 +24,7 @@ namespace Dotnet.Sample.Api.Endpoints.V1.Products
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> PutAsync(Guid id, Product product, string culture = "en-US")
+        public virtual async Task<IActionResult> PutAsync(Guid id, Product product, string culture = "en-US")
         {
             if (!ModelState.IsValid)
             {

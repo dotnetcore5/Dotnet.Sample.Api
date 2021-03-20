@@ -18,7 +18,7 @@ namespace Dotnet.Sample.Api.Endpoints.V2.Products
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> DeleteAsync(Guid id)
+        public virtual async Task<IActionResult> DeleteAsync(Guid id)
         {
             await Task.Delay(1).ConfigureAwait(false);                                                                                        // simulating asynchronous/ non-blocking call
             return NoContent();

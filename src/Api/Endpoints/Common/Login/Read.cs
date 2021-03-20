@@ -1,4 +1,5 @@
 ﻿using Dotnet.Sample.Domain.Services;
+using Dotnet.Sample.Infrastructure;
 using Dotnet.Sample.Infrastructure.Extensions;
 using Dotnet.Sample.Shared;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,10 @@ namespace Dotnet.Sample.Api.Endpoints.Common
         [HttpPost(Roles.Admin)]
         public IActionResult AuthenticateAdmin(string username = Roles.Admin, string password = "Password", string culture = "en-US")
         {
+            // ### START ::: The localization can be accessed.
+            var language = Startup.Localizer["Welcome"]; //where "WELCOME" is the key
+            // ### END ::: The localization can be accessed.
+            //Console.WriteLine($"{language.Name} : {language.Value}");
             return Authenticate(username, password);
         }
 

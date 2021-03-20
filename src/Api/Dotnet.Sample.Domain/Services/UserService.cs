@@ -16,7 +16,7 @@ namespace Dotnet.Sample.Domain.Services
         User GetById(int userId);
     }
 
-    public class UserService : IUserService
+    internal class UserService : IUserService
     {
         private readonly JwtSettings _jwtSettings;
 
@@ -27,6 +27,10 @@ namespace Dotnet.Sample.Domain.Services
 
         public AuthenticateResponse Authenticate(string username, string password)
         {
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                return default;
+            }
             var user = User.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
 
             return new AuthenticateResponse { Id = user.Id, Token = GenerateJWTToken(user), Name = user.Name, Role = user.Role, Username = user.Username };

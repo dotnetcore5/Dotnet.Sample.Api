@@ -24,13 +24,8 @@ namespace Dotnet.Sample.Api.Endpoints.V1.Products
         [HttpGet("", Name = RouteNames.GetAsync)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProductDTO>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetAsync(string culture = "en-US")
+        public virtual async Task<IActionResult> GetAsync(string culture = "en-US")
         {
-            // ### START ::: The localization can be accessed.
-            var language = Startup.Localizer["WELCOME"]; //where "WELCOME" is the key
-            // ### END ::: The localization can be accessed.
-            Console.WriteLine($"{language.Name} : {language.Value}");
-
             var products = await _db.Products.AsQueryable().ToListAsync().ConfigureAwait(false);
 
             var res = products.Select(p => new ProductDTO

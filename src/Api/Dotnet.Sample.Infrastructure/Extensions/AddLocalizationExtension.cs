@@ -9,7 +9,8 @@ namespace Dotnet.Sample.Infrastructure.Extensions
     {
         public static IServiceCollection AddLocalizationServices(this IServiceCollection services)
         {
-            services.AddTransient<IStringLocalizerFactory, EFStringLocalizerFactory>();
+            services.AddSingleton<IStringLocalizerFactory, EFStringLocalizerFactory>();
+            //services.AddSingleton<IStringLocalizer, EFStringLocalizer>();
 
             services.Configure<RouteOptions>(options =>
             {

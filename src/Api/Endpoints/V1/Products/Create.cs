@@ -33,7 +33,7 @@ namespace Dotnet.Sample.Api.Endpoints.V1.Products
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ProductDTO))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> PostAsync(Product product, string culture = "en-US")
+        public virtual async Task<IActionResult> PostAsync(Product product, string culture = "en-US")
         {
             if (!ModelState.IsValid)
             {

@@ -18,7 +18,7 @@ namespace Dotnet.Sample.Api.Endpoints.V2.Products
         [HttpGet("", Name = RouteNames.GetAsync)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Product>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetAsync()
+        public virtual async Task<IActionResult> GetAsync()
         {
             // simulating asynchronous/ non-blocking call
             await Task.Delay(1).ConfigureAwait(false);
@@ -35,7 +35,7 @@ namespace Dotnet.Sample.Api.Endpoints.V2.Products
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Product))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetByIdAsync(Guid id)
+        public virtual async Task<IActionResult> GetByIdAsync(Guid id)
         {
             // simulating asynchronous/ non-blocking call
             await Task.Delay(1).ConfigureAwait(false);

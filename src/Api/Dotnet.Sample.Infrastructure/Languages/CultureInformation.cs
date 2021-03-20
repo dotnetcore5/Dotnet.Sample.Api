@@ -12,7 +12,7 @@ namespace Dotnet.Sample.Infrastructure.Languages
         {
             var jsonSerializerSettings = new JsonSerializerSettings();
             jsonSerializerSettings.MissingMemberHandling = MissingMemberHandling.Ignore;
-            return JsonConvert.DeserializeObject<List<Resource>>(File.ReadAllText(string.Format(CONSTANTS.LanguageLocation, CONSTANTS.Languages[0]), Encoding.UTF8), jsonSerializerSettings);
+            return JsonConvert.DeserializeObject<List<Resource>>(File.ReadAllText(string.Format(CONSTANTS.LanguageLocation, culture), Encoding.UTF8), jsonSerializerSettings);
         }
     }
 }

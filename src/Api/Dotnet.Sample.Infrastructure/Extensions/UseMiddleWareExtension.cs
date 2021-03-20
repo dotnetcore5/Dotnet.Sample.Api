@@ -12,7 +12,7 @@ namespace Dotnet.Sample.Infrastructure.Extensions
     {
         public static void UseMiddleware(this IApplicationBuilder app, IApiVersionDescriptionProvider provider, EFStringLocalizerFactory localizerFactory)
         {
-            AddLocalizationExtension._e = localizerFactory.Create(null);
+            Startup.Localizer = localizerFactory.Create(null);
             var supportedCultures = new List<CultureInfo> { new CultureInfo(CONSTANTS.Languages[0]), new CultureInfo(CONSTANTS.Languages[1]) };
             var requestLocalizationOptions = new RequestLocalizationOptions { SupportedCultures = supportedCultures, SupportedUICultures = supportedCultures };
             requestLocalizationOptions.RequestCultureProviders.Insert(0, new JsonRequestCultureProvider());

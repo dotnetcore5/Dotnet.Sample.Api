@@ -27,18 +27,7 @@ namespace Dotnet.Sample.Api.Endpoints.Common
         [HttpPost(Roles.Admin)]
         public IActionResult AuthenticateAdmin(string username = Roles.Admin, string password = "Password", string culture = "en-US")
         {
-            if (string.IsNullOrWhiteSpace(culture))
-            {
-                System.Console.WriteLine($"No culture supplied.");
-            }
-            var response = _userService.Authenticate(username, password);
-
-            if (response == null)
-            {
-                return BadRequest(ModelState.GetErrorMessages());
-            }
-
-            return Ok(response);
+            return Authenticate(username, password);
         }
 
         /// <summary>
@@ -51,18 +40,7 @@ namespace Dotnet.Sample.Api.Endpoints.Common
         [HttpPost(Roles.Editor)]
         public IActionResult AuthenticateEditor(string username = Roles.Editor, string password = "Password", string culture = "en-US")
         {
-            if (string.IsNullOrWhiteSpace(culture))
-            {
-                System.Console.WriteLine($"No culture supplied.");
-            }
-            var response = _userService.Authenticate(username, password);
-
-            if (response == null)
-            {
-                return BadRequest(ModelState.GetErrorMessages());
-            }
-
-            return Ok(response);
+            return Authenticate(username, password);
         }
 
         /// <summary>
@@ -75,10 +53,11 @@ namespace Dotnet.Sample.Api.Endpoints.Common
         [HttpPost(Roles.Reader)]
         public IActionResult AuthenticateReader(string username = Roles.Reader, string password = "Password", string culture = "en-US")
         {
-            if (string.IsNullOrWhiteSpace(culture))
-            {
-                System.Console.WriteLine($"No culture supplied.");
-            }
+            return Authenticate(username, password);
+        }
+
+        private IActionResult Authenticate(string username, string password)
+        {
             var response = _userService.Authenticate(username, password);
 
             if (response == null)

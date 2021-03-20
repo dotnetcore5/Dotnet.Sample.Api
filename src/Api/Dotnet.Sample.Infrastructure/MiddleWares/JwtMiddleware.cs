@@ -12,7 +12,7 @@ using Dotnet.Sample.Shared;
 
 namespace Dotnet.Sample.Infrastructure.Middleware
 {
-    public class JwtMiddleware
+    internal class JwtMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly JwtSettings _jwtSettings;
@@ -27,7 +27,10 @@ namespace Dotnet.Sample.Infrastructure.Middleware
         {
             var token = context.Request.Headers[CONSTANTS.Authorization].FirstOrDefault()?.Split(" ").Last();
 
-            if (token != null) AttachUserToContext(context, userService, token);
+            if (token != null)
+            {
+                AttachUserToContext(context, userService, token);
+            }
 
             await _next(context);
         }

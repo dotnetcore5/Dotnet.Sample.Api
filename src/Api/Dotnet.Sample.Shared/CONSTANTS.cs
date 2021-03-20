@@ -1,6 +1,6 @@
 ﻿namespace Dotnet.Sample.Shared
 {
-    public class CONSTANTS
+    internal class CONSTANTS
     {
         public const string SqlLite = "SqlLite";
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dotnet.Sample.Infrastructure.Languages
 {
-    public class JsonRequestCultureProvider : RequestCultureProvider
+    internal class JsonRequestCultureProvider : RequestCultureProvider
     {
         private static readonly Regex LocalePattern = new Regex(@"^[a-z]{2}(-[a-z]{2,4})?$", RegexOptions.IgnoreCase);
 

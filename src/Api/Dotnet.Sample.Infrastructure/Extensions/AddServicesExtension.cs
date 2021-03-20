@@ -12,10 +12,13 @@ using Dotnet.Sample.Datastore;
 using Dotnet.Sample.Domain.Models;
 using Dotnet.Sample.Shared;
 using Dotnet.Sample.Infrastructure.Swagger;
+using Dotnet.Sample.Domain.Services;
+using Dotnet.Sample.Infrastructure.Languages;
+using Microsoft.Extensions.Localization;
 
 namespace Dotnet.Sample.Infrastructure.Extensions
 {
-    internal static class AddMiddleWareExtensions
+    internal static class AddServicesExtension
     {
         public static void AddServices(this IServiceCollection services, IConfiguration Configuration)
         {
@@ -84,6 +87,8 @@ namespace Dotnet.Sample.Infrastructure.Extensions
                 });
 
             services.AddFeatureManagement();
+
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }

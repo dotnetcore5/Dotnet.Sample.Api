@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Routing;
 
 namespace Dotnet.Sample.Infrastructure.Languages
 {
-    public class LanguageRouteConstraint : IRouteConstraint
+    internal class LanguageRouteConstraint : IRouteConstraint
     {
         public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
         {

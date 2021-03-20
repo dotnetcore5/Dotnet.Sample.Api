@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Dotnet.Sample.Infrastructure.Languages
 {
-    public class EFStringLocalizer<T> : IStringLocalizer<T>
+    internal class EFStringLocalizer<T> : IStringLocalizer<T>
     {
         private readonly LocalizationDbContext _db;
 

@@ -8,7 +8,7 @@ using System.Net.Mime;
 
 namespace Dotnet.Sample.Infrastructure.Extensions
 {
-    public static class UseApiExceptionHandlerExtension
+    internal static class UseApiExceptionHandlerExtension
     {
         public static void UseApiExceptionHandler(this IApplicationBuilder app, ILoggerFactory loggerFactory)
         {

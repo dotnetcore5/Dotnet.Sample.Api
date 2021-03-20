@@ -6,7 +6,7 @@ using Dotnet.Sample.Shared;
 
 namespace Dotnet.Sample.Infrastructure.Languages
 {
-    public static class CultureInformation
+    internal static class CultureInformation
     {
         public static List<Resource> GetList(string culture)
         {

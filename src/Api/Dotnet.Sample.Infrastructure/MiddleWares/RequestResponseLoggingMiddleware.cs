@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dotnet.Sample.Infrastructure.Middleware
 {
-    public class RequestResponseLoggingMiddleware
+    internal class RequestResponseLoggingMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly ILogger _logger;

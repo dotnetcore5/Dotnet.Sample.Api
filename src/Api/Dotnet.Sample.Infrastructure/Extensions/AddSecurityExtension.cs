@@ -6,13 +6,12 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Security.Claims;
 using System.Text;
-using Dotnet.Sample.Domain.Services;
 using Dotnet.Sample.Shared;
 using Dotnet.Sample.Infrastructure.Security;
 
 namespace Dotnet.Sample.Infrastructure.Extensions
 {
-    public static partial class AddSecurityExtension
+    internal static partial class AddSecurityExtension
     {
         public static IServiceCollection AddSecurity(this IServiceCollection services, IConfiguration configuration)
         {
@@ -65,8 +64,6 @@ namespace Dotnet.Sample.Infrastructure.Extensions
             services.AddScoped<IAuthorizationHandler, ShouldBeAnAdminRequirementHandler>();
             services.AddScoped<IAuthorizationHandler, ShouldBeAReaderAuthorizationHandler>();
             services.AddScoped<IAuthorizationHandler, ShouldBeAnEditorRequirementHandler>();
-            services.AddScoped<IUserService, UserService>();
-
             return services;
         }
     }

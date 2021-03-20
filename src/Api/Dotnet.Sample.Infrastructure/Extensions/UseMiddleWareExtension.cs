@@ -5,12 +5,13 @@ using System.Globalization;
 using Dotnet.Sample.Shared;
 using Dotnet.Sample.Infrastructure.Languages;
 using Dotnet.Sample.Infrastructure.Middleware;
+using Microsoft.Extensions.Localization;
 
 namespace Dotnet.Sample.Infrastructure.Extensions
 {
     internal static class UseMiddleWareExtension
     {
-        public static void UseMiddleware(this IApplicationBuilder app, IApiVersionDescriptionProvider provider, EFStringLocalizerFactory localizerFactory)
+        public static void UseMiddleware(this IApplicationBuilder app, IApiVersionDescriptionProvider provider, IStringLocalizerFactory localizerFactory)
         {
             Startup.Localizer = localizerFactory.Create(null);
             var supportedCultures = new List<CultureInfo> { new CultureInfo(CONSTANTS.Languages[0]), new CultureInfo(CONSTANTS.Languages[1]) };
@@ -18,16 +19,23 @@ namespace Dotnet.Sample.Infrastructure.Extensions
             requestLocalizationOptions.RequestCultureProviders.Insert(0, new JsonRequestCultureProvider());
 
             app.UseCors(x => x
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader())
-                .UseRouting().UseAuthentication().UseAuthorization().UseRequestResponseLogging().UseMiddleware<JwtMiddleware>().UseSwagger().UseSwaggerUI(options =>
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader())
+                .UseRouting()
+                .UseAuthentication()
+                .UseAuthorization()
+                .UseRequestResponseLogging()
+                .UseMiddleware<JwtMiddleware>()
+                .UseSwagger()
+                .UseSwaggerUI(options =>
                 {
                     foreach (var description in provider.ApiVersionDescriptions)
                     {
                         options.SwaggerEndpoint(string.Format(CONSTANTS.SwaggerDetails.Endpoints, description.GroupName), description.GroupName.ToUpperInvariant());
                     }
-                }).UseRequestLocalization(requestLocalizationOptions);
+                })
+                .UseRequestLocalization(requestLocalizationOptions);
 
             app.UseEndpoints(endpoints =>
             {

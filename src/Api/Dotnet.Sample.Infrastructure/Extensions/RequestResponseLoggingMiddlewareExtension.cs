@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 
 namespace Dotnet.Sample.Infrastructure.Extensions
 {
-    public static class RequestResponseLoggingMiddlewareExtensions
+    internal static class RequestResponseLoggingMiddlewareExtension
     {
         public static IApplicationBuilder UseRequestResponseLogging(this IApplicationBuilder builder)
         {

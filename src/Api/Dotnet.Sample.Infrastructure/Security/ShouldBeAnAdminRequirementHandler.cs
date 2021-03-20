@@ -6,11 +6,11 @@ using static Dotnet.Sample.Shared.CONSTANTS;
 
 namespace Dotnet.Sample.Infrastructure.Security
 {
-    public class ShouldBeAnAdminRequirement : IAuthorizationRequirement
+    internal class ShouldBeAnAdminRequirement : IAuthorizationRequirement
     {
     }
 
-    public class ShouldBeAnAdminRequirementHandler : AuthorizationHandler<ShouldBeAnAdminRequirement>
+    internal class ShouldBeAnAdminRequirementHandler : AuthorizationHandler<ShouldBeAnAdminRequirement>
     {
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ShouldBeAnAdminRequirement requirement)
         {

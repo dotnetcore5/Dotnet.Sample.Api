@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Dotnet.Sample.Infrastructure.Extensions
 {
-    internal static class ErrorExtensions
+    internal static class ErrorExtension
     {
         public static List<string> GetErrorMessages(this ModelStateDictionary dictionary)
         {

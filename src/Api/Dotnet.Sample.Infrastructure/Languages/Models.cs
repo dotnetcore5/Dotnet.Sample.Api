@@ -2,14 +2,14 @@
 
 namespace Dotnet.Sample.Infrastructure.Languages
 {
-    public class Culture
+    internal class Culture
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public virtual List<Resource> Resources { get; set; }
     }
 
-    public class Resource
+    internal class Resource
     {
         public int Id { get; set; }
         public string Key { get; set; }

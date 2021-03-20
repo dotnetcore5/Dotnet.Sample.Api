@@ -2,7 +2,7 @@
 
 namespace Dotnet.Sample.Infrastructure.Languages
 {
-    public class LocalizationDbContext : DbContext
+    internal class LocalizationDbContext : DbContext
     {
         public DbSet<Culture> Cultures { get; set; }
         public DbSet<Resource> Resources { get; set; }

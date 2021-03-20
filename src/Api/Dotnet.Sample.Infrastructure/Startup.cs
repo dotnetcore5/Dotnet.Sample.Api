@@ -6,12 +6,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Dotnet.Sample.Infrastructure.Extensions;
-using Dotnet.Sample.Infrastructure.Languages;
 using Microsoft.Extensions.Localization;
 
 namespace Dotnet.Sample.Infrastructure
 {
-    public class Startup
+    internal class Startup
     {
         public static IStringLocalizer Localizer; // This is how we access language strings
 
@@ -38,7 +37,7 @@ namespace Dotnet.Sample.Infrastructure
             services.AddServices(Configuration);
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logger, IApiVersionDescriptionProvider provider, EFStringLocalizerFactory localizerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logger, IApiVersionDescriptionProvider provider, IStringLocalizerFactory localizerFactory)
         {
             if (!env.IsDevelopment())
             {

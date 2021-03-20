@@ -4,7 +4,7 @@ using System;
 
 namespace Dotnet.Sample.Infrastructure.Languages
 {
-    public class EFStringLocalizerFactory : IStringLocalizerFactory
+    internal class EFStringLocalizerFactory : IStringLocalizerFactory
     {
         private readonly LocalizationDbContext _db;
 

@@ -100,3 +100,7 @@ For better experience please use chrome browser
 -----------------------------------------------------------------------
 ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=ajeetx/dotnet.sample.api)  | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/Dotnet.Sample.Api.svg?style=plastic)|![license](https://img.shields.io/github/license/ajeetx/Dotnet.Sample.Api.svg?style=plastic)|
  | --- | --- | ---|
+
+
+
+<a href="https://info.flagcounter.com/JDVj"><img src="https://s01.flagcounter.com/countxl/JDVj/bg_FFFFFF/txt_000000/border_CCCCCC/columns_8/maxflags_12/viewers_Visits/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>

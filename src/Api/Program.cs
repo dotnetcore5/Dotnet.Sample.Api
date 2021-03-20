@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Dotnet.Sample.Api
 {
-    public class Program
+    internal static class Program
     {
-        public static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             var webHost = CreateHostBuilder(args).Build();
 

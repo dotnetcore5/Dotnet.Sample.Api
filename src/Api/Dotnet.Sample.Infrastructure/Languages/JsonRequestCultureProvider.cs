@@ -12,7 +12,10 @@ namespace Dotnet.Sample.Infrastructure.Languages
 
         public override Task<ProviderCultureResult> DetermineProviderCultureResult(HttpContext httpContext)
         {
-            if (httpContext == null) throw new ArgumentNullException(nameof(httpContext));
+            if (httpContext == null)
+            {
+                throw new ArgumentNullException(nameof(httpContext));
+            }
 
             var parts = httpContext.Request.Path.Value.Split('/');
             if (parts.Length < 3)

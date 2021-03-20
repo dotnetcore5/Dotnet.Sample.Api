@@ -1,4 +1,5 @@
 ﻿using Dotnet.Sample.Domain.Models;
+using Dotnet.Sample.Infrastructure;
 using Dotnet.Sample.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -26,8 +27,9 @@ namespace Dotnet.Sample.Api.Endpoints.V1.Products
         public async Task<IActionResult> GetAsync(string culture = "en-US")
         {
             // ### START ::: The localization can be accessed.
-            //var language = AddLocalizationExtension._e[WELCOME];
+            var language = Startup.Localizer["WELCOME"]; //where "WELCOME" is the key
             // ### END ::: The localization can be accessed.
+            Console.WriteLine($"{language.Name} : {language.Value}");
 
             var products = await _db.Products.AsQueryable().ToListAsync().ConfigureAwait(false);
 

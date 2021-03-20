@@ -11,7 +11,7 @@ namespace Dotnet.Sample.Domain.Models
         public string Username { get; set; }
         public string Role { get; set; }
 
-        public static List<User> Users = new List<User>
+        public static readonly List<User> Users = new List<User>
         {
             new User {Id= 1,Name= "Admin", Username="Admin", Password="Password",Role=Roles.Admin },
             new User {Id= 2,Name= "Editor", Username="Editor", Password="Password",Role=Roles.Editor},

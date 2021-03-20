@@ -7,11 +7,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Dotnet.Sample.Infrastructure.Extensions;
 using Dotnet.Sample.Infrastructure.Languages;
+using Microsoft.Extensions.Localization;
 
 namespace Dotnet.Sample.Infrastructure
 {
     public class Startup
     {
+        public static IStringLocalizer Localizer; // This is how we access language strings
+
         public Startup(IConfiguration configuration, IHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()

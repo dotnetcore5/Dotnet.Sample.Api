@@ -9,7 +9,7 @@
         public const string LanguageLocation = "Dotnet.Sample.Infrastructure/Languages/Resources/{0}.json";
         public const string Authorization = "Authorization";
 
-        public class RouteNames
+        public static class RouteNames
         {
             public const string GetAsync = "GetAsync";
             public const string GetByIdAsync = "GetByIdAsync";

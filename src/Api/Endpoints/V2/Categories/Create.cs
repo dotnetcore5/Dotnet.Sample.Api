@@ -53,8 +53,7 @@ namespace Dotnet.Sample.Api.Endpoints.V2.Categories
                 Name = category.Name,
                 SeoUrl = category.SeoUrl
             };
-            return Ok();
-            //return stateAded && count == 1 ? CreatedAtRoute(RouteNames.GetByIdAsync, new { seo = responseProduct.SeoUrl, culture }, responseProduct) : StatusCode(StatusCodes.Status500InternalServerError);
+            return stateAded && count == 1 ? CreatedAtRoute(RouteNames.GetByIdAsync, new { seo = responseProduct.SeoUrl, culture }, responseProduct) : StatusCode(StatusCodes.Status500InternalServerError);
         }
     }
 }

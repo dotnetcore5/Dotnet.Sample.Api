@@ -22,10 +22,10 @@ namespace Dotnet.Sample.Api.Endpoints.V1.Products
         /// <returns>Returns list of products</returns>
         [Authorize(Policy = Policy.ShouldBeAReader)]
         [ApiVersion(ApiVersionNumbers.V1)]
-        [HttpGet("", Name = RouteNames.GetAsync)]
+        [HttpGet("", Name = RouteNames.GetProductsAsync)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProductModel>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public virtual async Task<IActionResult> GetAsync(string culture = "en-US")
+        public virtual async Task<IActionResult> GetProductsAsync(string culture = "en-US")
         {
             var products = await _db.Products.AsQueryable().ToListAsync().ConfigureAwait(false);
 

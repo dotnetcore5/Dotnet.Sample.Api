@@ -15,10 +15,10 @@ namespace Dotnet.Sample.Api.Endpoints.V2.Products
         /// </summary>
         /// <returns>Returns list of products</returns>
         [ApiVersion(ApiVersionNumbers.V2)]
-        [HttpGet("", Name = RouteNames.GetAsync)]
+        [HttpGet("", Name = RouteNames.GetProductsAsync)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Product>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public virtual async Task<IActionResult> GetAsync()
+        public virtual async Task<IActionResult> GetProductsAsync()
         {
             // simulating asynchronous/ non-blocking call
             await Task.Delay(1).ConfigureAwait(false);

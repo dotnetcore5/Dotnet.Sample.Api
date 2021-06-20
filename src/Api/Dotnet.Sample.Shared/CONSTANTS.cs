@@ -11,12 +11,15 @@
 
         public static class RouteNames
         {
-            public const string GetAsync = "GetAsync";
+            public const string GetProductsAsync = "GetProductsAsync";
             public const string GetByIdAsync = "GetByIdAsync";
             public const string PostAsync = "PostAsync";
             public const string AddAsync = "AddAsync";
+            public const string GetCategoriesAsync = "GetCategoriesAsync";
             public const string PutAsync = "PutAsync";
+            public const string PutCatogoryAsync = "PutCatogoryAsync";
             public const string DeleteAsync = "DeleteAsync";
+            public const string DeleteCategoryAsync = "DeleteCategoryAsync";
             public const string RouteAttribute = "api/{culture:culture}/v{version:apiVersion}/[controller]";
         }
 

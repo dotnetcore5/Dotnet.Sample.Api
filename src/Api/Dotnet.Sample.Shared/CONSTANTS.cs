@@ -14,6 +14,7 @@
             public const string GetAsync = "GetAsync";
             public const string GetByIdAsync = "GetByIdAsync";
             public const string PostAsync = "PostAsync";
+            public const string AddAsync = "AddAsync";
             public const string PutAsync = "PutAsync";
             public const string DeleteAsync = "DeleteAsync";
             public const string RouteAttribute = "api/{culture:culture}/v{version:apiVersion}/[controller]";
@@ -30,7 +31,7 @@
         public class Features
         {
             public const string PRODUCT = "PRODUCT";
-            public const string PRODUCTOPTION = "PRODUCTOPTION";
+            public const string CATEGORIES = "CATEGORIES";
         }
 
         public class ApiVersionNumbers

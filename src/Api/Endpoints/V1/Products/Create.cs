@@ -1,4 +1,5 @@
-﻿using Dotnet.Sample.Datastore;
+﻿using Dotnet.Sample.Api.Domain.ViewModels;
+using Dotnet.Sample.Datastore;
 using Dotnet.Sample.Domain.Models;
 using Dotnet.Sample.Infrastructure.Extensions;
 using Dotnet.Sample.Shared;
@@ -30,7 +31,7 @@ namespace Dotnet.Sample.Api.Endpoints.V1.Products
         [FeatureGate(Features.PRODUCT)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpPost("", Name = RouteNames.PostAsync)]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ProductDTO))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ProductModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public virtual async Task<IActionResult> PostAsync(Product product, string culture = "en-US")
@@ -46,9 +47,9 @@ namespace Dotnet.Sample.Api.Endpoints.V1.Products
 
             var count = await _db.SaveChangesAsync();
 
-            var responseProduct = new ProductDTO
+            var responseProduct = new ProductModel
             {
-                DeliveryPrice = addedProduct.Entity.DeliveryPrice,
+                OldPrice =addedProduct.Entity.Price,
                 Description = addedProduct.Entity.Description,
                 Id = addedProduct.Entity.Id,
                 Name = addedProduct.Entity.Name,

@@ -1,4 +1,5 @@
-﻿using Dotnet.Sample.Domain.Models;
+﻿using Dotnet.Sample.Api.Domain.ViewModels;
+using Dotnet.Sample.Domain.Models;
 using Dotnet.Sample.Infrastructure;
 using Dotnet.Sample.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authorization;
@@ -22,19 +23,18 @@ namespace Dotnet.Sample.Api.Endpoints.V1.Products
         [Authorize(Policy = Policy.ShouldBeAReader)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpGet("", Name = RouteNames.GetAsync)]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProductDTO>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProductModel>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public virtual async Task<IActionResult> GetAsync(string culture = "en-US")
         {
             var products = await _db.Products.AsQueryable().ToListAsync().ConfigureAwait(false);
 
-            var res = products.Select(p => new ProductDTO
+            var res = products.Select(p => new ProductModel
             {
                 Id = p.Id,
                 Name = p.Name,
                 Description = p.Description,
-                Price = p.Price,
-                DeliveryPrice = p.DeliveryPrice
+                Price = p.Price
             }).ToList();
             return Ok(res);
         }
@@ -48,7 +48,7 @@ namespace Dotnet.Sample.Api.Endpoints.V1.Products
         [Authorize(Policy = Policy.ShouldBeAReader)]
         [ApiVersion(ApiVersionNumbers.V1)]
         [HttpGet("{id}", Name = RouteNames.GetByIdAsync)]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductDTO))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetByIdAsync(Guid id, string culture = "en-US")
@@ -64,13 +64,12 @@ namespace Dotnet.Sample.Api.Endpoints.V1.Products
                 return NotFound(string.Format(CustomException.NotFoundException, id));
             }
 
-            var responseProduct = new ProductDTO
+            var responseProduct = new ProductModel
             {
                 Id = product.Id,
                 Name = product.Name,
                 Description = product.Description,
-                DeliveryPrice = product.DeliveryPrice,
-                Price = product.DeliveryPrice
+                Price = product.Price
             };
 
             return Ok(responseProduct);

@@ -14,8 +14,7 @@ namespace Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V2.TestData
                 {
                     Name = "product1",
                     Description = "Description",
-                    Price = 11,
-                    DeliveryPrice = 12
+                    Price = 11
                 };
             }
         }

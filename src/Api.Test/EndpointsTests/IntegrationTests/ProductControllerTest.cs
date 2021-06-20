@@ -12,6 +12,7 @@ using Dotnet.Sample.Domain.Models;
 using Xunit;
 using Dotnet.Sample.Infrastructure;
 using static Dotnet.Sample.Shared.CONSTANTS;
+using Dotnet.Sample.Api.Domain.ViewModels;
 
 namespace Dotnet.Sample.Api.Tests.EndpointTests.IntegrationTests
 {
@@ -89,14 +90,13 @@ namespace Dotnet.Sample.Api.Tests.EndpointTests.IntegrationTests
 
             var productResponse = await client.GetAsync(string.Format(SampleDataV1.productEndpoint, culture, version)).ConfigureAwait(false);
             var strProduct = await productResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-            var products = JsonConvert.DeserializeObject<List<ProductDTO>>(strProduct);
+            var products = JsonConvert.DeserializeObject<List<ProductModel>>(strProduct);
 
             var id = products.FirstOrDefault().Id;
             var putRequestPayload = new Product
             {
                 Id = products.FirstOrDefault().Id,
                 Name = "Newname",
-                DeliveryPrice = 11,
                 Price = 22,
                 Description = "newDescription"
             };

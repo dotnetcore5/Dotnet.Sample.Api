@@ -9,6 +9,7 @@ using Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V1.TestData;
 using Xunit;
 using Dotnet.Sample.Datastore;
 using Dotnet.Sample.Domain.Models;
+using Dotnet.Sample.Api.Domain.ViewModels;
 
 namespace Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V1.Products
 {
@@ -52,7 +53,7 @@ namespace Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V1.Products
 
             //When
             var actualResponse = await sut.GetAsync() as OkObjectResult;
-            var actualResponsePayload = actualResponse.Value as List<ProductDTO>;
+            var actualResponsePayload = actualResponse.Value as List<ProductModel>;
 
             //Then
             Assert.NotNull(actualResponse);
@@ -69,7 +70,7 @@ namespace Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V1.Products
 
             //When
             var actualResponse = await sut.GetByIdAsync(product.Entity.Id) as OkObjectResult;
-            var actualResponsePayload = actualResponse.Value as ProductDTO;
+            var actualResponsePayload = actualResponse.Value as ProductModel;
 
             //Then
             Assert.NotNull(actualResponse);

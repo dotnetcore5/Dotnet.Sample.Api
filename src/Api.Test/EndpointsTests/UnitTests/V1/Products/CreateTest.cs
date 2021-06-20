@@ -9,6 +9,7 @@ using Xunit;
 using Dotnet.Sample.Datastore;
 using Dotnet.Sample.Domain.Models;
 using Dotnet.Sample.Shared;
+using Dotnet.Sample.Api.Domain.ViewModels;
 
 namespace Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V1.Products
 {
@@ -38,7 +39,7 @@ namespace Dotnet.Sample.Api.Tests.EndpointTests.UnitTests.V1.Products
 
             //When
             var actualResponse = await sut.PostAsync(SampleDataV1.Product, "en-us") as CreatedAtRouteResult;
-            var actualResponsePayload = actualResponse.Value as ProductDTO;
+            var actualResponsePayload = actualResponse.Value as ProductModel;
 
             //Then
             Assert.NotNull(actualResponse);
